@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sun Nov 08 17:23:20 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : TLC59116-Driver
+Top-level Entity Name : I2C_SAMPLE
+Family : MAX 10
+Total logic elements : 213
+    Total combinational functions : 180
+    Dedicated logic registers : 89
+Total registers : 89
+Total pins : 8
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

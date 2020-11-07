@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "pI2Cscl",
+					"strict" : false
+				},
+				{
+					"name" : "pI2Csda",
+					"strict" : false
+				},
+				{
+					"name" : "pClk",
+					"strict" : false
+				},
+				{
+					"name" : "rstn",
+					"strict" : false
+				},
+				{
+					"name" : "pPsw[2]",
+					"strict" : false
+				},
+				{
+					"name" : "pPsw[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pPsw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pPsw[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
