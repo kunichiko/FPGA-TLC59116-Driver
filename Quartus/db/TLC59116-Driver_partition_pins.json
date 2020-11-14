@@ -20,14 +20,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "pPsw[2]",
-					"strict" : false
-				},
-				{
-					"name" : "pPsw[3]",
-					"strict" : false
-				},
-				{
 					"name" : "pPsw[1]",
 					"strict" : false
 				},

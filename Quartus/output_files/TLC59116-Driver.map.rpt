@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TLC59116-Driver
-Sun Nov 08 17:23:20 2020
+Sat Nov 14 22:29:15 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,19 +13,23 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116|I2Cstate
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |I2C_SAMPLE
- 15. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
- 16. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116
- 17. Port Connectivity Checks: "SFTCLK:i2cclk"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+  8. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate
+  9. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2CMUXstate
+ 10. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |I2C_SAMPLE
+ 17. Parameter Settings for User Entity Instance: I2C_MUX:I2CMUX
+ 18. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
+ 19. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0
+ 20. Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"
+ 21. Port Connectivity Checks: "SFTCLK:i2cclk"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -51,15 +55,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 08 17:23:20 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Nov 14 22:29:15 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TLC59116-Driver                             ;
 ; Top-level Entity Name              ; I2C_SAMPLE                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 213                                         ;
-;     Total combinational functions  ; 180                                         ;
-;     Dedicated logic registers      ; 89                                          ;
-; Total registers                    ; 89                                          ;
+; Total logic elements               ; 226                                         ;
+;     Total combinational functions  ; 195                                         ;
+;     Dedicated logic registers      ; 95                                          ;
+; Total registers                    ; 95                                          ;
 ; Total pins                         ; 8                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -178,6 +182,8 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                     ; Library ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
+; ../hdl/I2C_MUX_PROXY.vhd         ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd    ;         ;
+; ../hdl/I2C_MUX.vhd               ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd          ;         ;
 ; ../hdl/I2C_TLC59116_pkg.vhd      ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116_pkg.vhd ;         ;
 ; ../hdl/sftclk.vhd                ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd           ;         ;
 ; ../hdl/sample.vhd                ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd           ;         ;
@@ -192,20 +198,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 213        ;
+; Estimated Total logic elements              ; 226        ;
 ;                                             ;            ;
-; Total combinational functions               ; 180        ;
+; Total combinational functions               ; 195        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 123        ;
-;     -- 3 input functions                    ; 27         ;
-;     -- <=2 input functions                  ; 30         ;
+;     -- 4 input functions                    ; 121        ;
+;     -- 3 input functions                    ; 36         ;
+;     -- <=2 input functions                  ; 38         ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 175        ;
+;     -- normal mode                          ; 190        ;
 ;     -- arithmetic mode                      ; 5          ;
 ;                                             ;            ;
-; Total registers                             ; 89         ;
-;     -- Dedicated logic registers            ; 89         ;
+; Total registers                             ; 95         ;
+;     -- Dedicated logic registers            ; 95         ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 8          ;
@@ -213,28 +219,30 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; pClk~input ;
-; Maximum fan-out                             ; 89         ;
-; Total fan-out                               ; 949        ;
-; Average fan-out                             ; 3.31       ;
+; Maximum fan-out                             ; 95         ;
+; Total fan-out                               ; 1004       ;
+; Average fan-out                             ; 3.26       ;
 +---------------------------------------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                               ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name               ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+--------------+--------------+
-; |I2C_SAMPLE                ; 180 (6)             ; 89 (6)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                       ; I2C_SAMPLE   ; work         ;
-;    |I2CIF:I2C|             ; 101 (101)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C             ; I2CIF        ; work         ;
-;    |I2C_TLC59116:tlc59116| ; 59 (59)             ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116 ; I2C_TLC59116 ; work         ;
-;    |SFTCLK:i2cclk|         ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk         ; SFTCLK       ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+--------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                      ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name   ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
+; |I2C_SAMPLE                     ; 195 (4)             ; 95 (4)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE    ; work         ;
+;    |I2CIF:I2C|                  ; 101 (101)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF         ; work         ;
+;    |I2C_MUX:I2CMUX|             ; 20 (9)              ; 10 (5)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX       ; work         ;
+;       |I2C_MUX_PROXY:\GEN1:0:U| ; 11 (11)             ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U ; I2C_MUX_PROXY ; work         ;
+;    |I2C_TLC59116:tlc59116_0|    ; 56 (56)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_0                ; I2C_TLC59116  ; work         ;
+;    |SFTCLK:i2cclk|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                          ; SFTCLK        ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
+; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
 +----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
 ; Name                       ; I2Cstate.IS_UPDATE_FIN ; I2Cstate.IS_UPDATE_LEDOUT3 ; I2Cstate.IS_UPDATE_LEDOUT2 ; I2Cstate.IS_UPDATE_LEDOUT1 ; I2Cstate.IS_UPDATE_LEDOUT0 ; I2Cstate.IS_UPDATE_REGADDR ; I2Cstate.IS_UPDATE_BGN ; I2Cstate.IS_IDLE ; I2Cstate.IS_INI_FIN ; I2Cstate.IS_INI_GRPFREQ ; I2Cstate.IS_INI_GRPPWM ; I2Cstate.IS_INI_PWM15 ; I2Cstate.IS_INI_PWM14 ; I2Cstate.IS_INI_PWM13 ; I2Cstate.IS_INI_PWM12 ; I2Cstate.IS_INI_PWM11 ; I2Cstate.IS_INI_PWM10 ; I2Cstate.IS_INI_PWM9 ; I2Cstate.IS_INI_PWM8 ; I2Cstate.IS_INI_PWM7 ; I2Cstate.IS_INI_PWM6 ; I2Cstate.IS_INI_PWM5 ; I2Cstate.IS_INI_PWM4 ; I2Cstate.IS_INI_PWM3 ; I2Cstate.IS_INI_PWM2 ; I2Cstate.IS_INI_PWM1 ; I2Cstate.IS_INI_PWM0 ; I2Cstate.IS_INI_MODE2 ; I2Cstate.IS_INI_MODE1 ; I2Cstate.IS_INI_REGADDR ; I2Cstate.IS_INI_BGN ;
 +----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
@@ -272,97 +280,132 @@ Encoding Type:  One-Hot
 +----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                  ;
-+-----------------------------------------+-------------------------------------------+
-; Register name                           ; Reason for Removal                        ;
-+-----------------------------------------+-------------------------------------------+
-; ledmodes[0][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[1][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[2][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[3][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[4][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[4][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[5][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[5][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[6][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[6][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[7][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[7][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[8][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[8][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[9][1]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[9][0]                          ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[10][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[10][0]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[11][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[11][0]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[12][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[12][0]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[13][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[13][0]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[14][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[14][0]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[15][1]                         ; Stuck at GND due to stuck port data_in    ;
-; ledmodes[15][0]                         ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|RDn               ; Stuck at VCC due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|F_FINISH          ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|INIT              ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[15][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[0][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[1][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[3][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[4][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[4][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[5][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[5][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[6][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[6][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[7][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[7][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[8][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[8][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[9][1]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[10][1] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[10][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[11][1] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[11][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[12][1] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[12][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[13][1] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[13][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[14][1] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[14][0] ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[15][1] ; Stuck at GND due to stuck port data_in    ;
-; SFTCLK:i2cclk|selcounter[0]             ; Stuck at GND due to stuck port data_in    ;
-; I2C_TLC59116:tlc59116|RESTART           ; Merged with I2C_TLC59116:tlc59116|NX_READ ;
-; I2C_TLC59116:tlc59116|NX_READ           ; Stuck at GND due to stuck port data_in    ;
-; Total Number of Removed Registers = 62  ;                                           ;
-+-----------------------------------------+-------------------------------------------+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2CMUXstate                                                         ;
++----------------------+---------------------+----------------------+----------------------+---------------------+
+; Name                 ; I2CMUXstate.IS_BUSY ; I2CMUXstate.IS_GRANT ; I2CMUXstate.IS_START ; I2CMUXstate.IS_IDLE ;
++----------------------+---------------------+----------------------+----------------------+---------------------+
+; I2CMUXstate.IS_IDLE  ; 0                   ; 0                    ; 0                    ; 0                   ;
+; I2CMUXstate.IS_START ; 0                   ; 0                    ; 1                    ; 1                   ;
+; I2CMUXstate.IS_GRANT ; 0                   ; 1                    ; 0                    ; 1                   ;
+; I2CMUXstate.IS_BUSY  ; 1                   ; 0                    ; 0                    ; 1                   ;
++----------------------+---------------------+----------------------+----------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                    ;
-+----------------+---------------------------+-----------------------------------------------------------------------------------+
-; Register name  ; Reason for Removal        ; Registers Removed due to This Register                                            ;
-+----------------+---------------------------+-----------------------------------------------------------------------------------+
-; ledmodes[0][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116|D_LEDMODES[15][0], I2C_TLC59116:tlc59116|D_LEDMODES[0][0],  ;
-;                ; due to stuck port data_in ; I2C_TLC59116:tlc59116|D_LEDMODES[1][0], I2C_TLC59116:tlc59116|D_LEDMODES[2][0],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[3][0], I2C_TLC59116:tlc59116|D_LEDMODES[4][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[4][0], I2C_TLC59116:tlc59116|D_LEDMODES[5][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[5][0], I2C_TLC59116:tlc59116|D_LEDMODES[6][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[6][0], I2C_TLC59116:tlc59116|D_LEDMODES[7][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[7][0], I2C_TLC59116:tlc59116|D_LEDMODES[8][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[8][0], I2C_TLC59116:tlc59116|D_LEDMODES[9][1],   ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[9][0], I2C_TLC59116:tlc59116|D_LEDMODES[10][1],  ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[10][0], I2C_TLC59116:tlc59116|D_LEDMODES[11][1], ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[11][0], I2C_TLC59116:tlc59116|D_LEDMODES[12][1], ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[12][0], I2C_TLC59116:tlc59116|D_LEDMODES[13][1], ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[13][0], I2C_TLC59116:tlc59116|D_LEDMODES[14][1], ;
-;                ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[14][0], I2C_TLC59116:tlc59116|D_LEDMODES[15][1]  ;
-+----------------+---------------------------+-----------------------------------------------------------------------------------+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state ;
++---------------+---------------+--------------+---------------------------+
+; Name          ; state.IS_BUSY ; state.IS_REQ ; state.IS_IDLE             ;
++---------------+---------------+--------------+---------------------------+
+; state.IS_IDLE ; 0             ; 0            ; 0                         ;
+; state.IS_REQ  ; 0             ; 1            ; 1                         ;
+; state.IS_BUSY ; 1             ; 0            ; 1                         ;
++---------------+---------------+--------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++-------------------------------------------+---------------------------------------------+
+; Register name                             ; Reason for Removal                          ;
++-------------------------------------------+---------------------------------------------+
+; ledmodes0[0][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[1][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[2][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[2][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[3][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[3][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[4][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[4][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[5][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[5][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[6][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[6][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[7][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[7][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[8][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[8][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[9][1]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[9][0]                           ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[10][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[10][0]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[11][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[11][0]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[12][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[12][0]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[13][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[13][0]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[14][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[14][0]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[15][1]                          ; Stuck at GND due to stuck port data_in      ;
+; ledmodes0[15][0]                          ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|F_FINISH          ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|INIT              ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0] ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1] ; Stuck at GND due to stuck port data_in      ;
+; SFTCLK:i2cclk|selcounter[0]               ; Stuck at GND due to stuck port data_in      ;
+; I2C_TLC59116:tlc59116_0|RESTART           ; Merged with I2C_TLC59116:tlc59116_0|NX_READ ;
+; I2C_TLC59116:tlc59116_0|NX_READ           ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 65    ;                                             ;
++-------------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                       ;
++-----------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name   ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++-----------------+---------------------------+-------------------------------------------------------------------------------------+
+; ledmodes0[0][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0],                                          ;
+;                 ; due to stuck port data_in ; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0], I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0], ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0],                                          ;
+;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1]                                           ;
++-----------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -370,12 +413,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 89    ;
+; Total registers                              ; 95    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 2     ;
-; Number of registers using Asynchronous Clear ; 77    ;
+; Number of registers using Asynchronous Clear ; 84    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 59    ;
+; Number of registers using Clock Enable       ; 58    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -385,35 +428,37 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; SCLIN                                   ; 6       ;
-; I2CIF:I2C|INITTING                      ; 18      ;
+; I2CIF:I2C|INITTING                      ; 16      ;
 ; I2CIF:I2C|TXBIT                         ; 2       ;
-; SDAIN                                   ; 5       ;
+; SDAIN                                   ; 6       ;
+; SCLIN                                   ; 7       ;
 ; I2CIF:I2C|INITCOUNT[3]                  ; 2       ;
 ; I2CIF:I2C|INITCOUNT[1]                  ; 4       ;
-; I2C_TLC59116:tlc59116|WRn               ; 9       ;
+; I2C_TLC59116:tlc59116_0|WRn             ; 7       ;
 ; I2CIF:I2C|LASTSDA                       ; 1       ;
 ; SFTCLK:i2cclk|counter[5]                ; 2       ;
 ; SFTCLK:i2cclk|counter[4]                ; 2       ;
 ; SFTCLK:i2cclk|counter[3]                ; 2       ;
 ; SFTCLK:i2cclk|counter[1]                ; 3       ;
 ; SFTCLK:i2cclk|counter[0]                ; 4       ;
-; I2CIF:I2C|TXEMPbuf                      ; 8       ;
+; I2CIF:I2C|TXEMPbuf                      ; 2       ;
 ; Total number of inverted registers = 14 ;         ;
 +-----------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[4] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[0] ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|CLKST[0] ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|SDAOUT   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2CIF:I2C|STATE    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[3]                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[0]                               ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|CLKST[1]                               ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBIT                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2CIF:I2C|STATE                                  ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|Selector2 ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector4                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------+
@@ -423,6 +468,16 @@ Encoding Type:  One-Hot
 +----------------+-------+---------------------------------------------------+
 ; SCFREQ         ; 48000 ; Signed Integer                                    ;
 +----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_MUX:I2CMUX ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; num_drivers    ; 1     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -438,29 +493,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116 ;
-+------------------+----------+--------------------------------------+
-; Parameter Name   ; Value    ; Type                                 ;
-+------------------+----------+--------------------------------------+
-; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
-; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
-+------------------+----------+--------------------------------------+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0 ;
++------------------+----------+----------------------------------------+
+; Parameter Name   ; Value    ; Type                                   ;
++------------------+----------+----------------------------------------+
+; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
++------------------+----------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"                                                            ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; rdn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------+
@@ -478,23 +542,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 89                          ;
-;     CLR               ; 30                          ;
-;     ENA               ; 12                          ;
+; cycloneiii_ff         ; 95                          ;
+;     CLR               ; 37                          ;
+;     ENA               ; 11                          ;
 ;     ENA CLR           ; 45                          ;
 ;     ENA CLR SLD       ; 2                           ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 180                         ;
+; cycloneiii_lcell_comb ; 195                         ;
 ;     arith             ; 5                           ;
 ;         2 data inputs ; 5                           ;
-;     normal            ; 175                         ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 27                          ;
-;         4 data inputs ; 123                         ;
+;     normal            ; 190                         ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 121                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.52                        ;
+; Average LUT depth     ; 3.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -513,10 +577,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 08 17:22:52 2020
+    Info: Processing started: Sat Nov 14 22:28:46 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TLC59116-Driver -c TLC59116-Driver
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_mux_proxy.vhd
+    Info (12022): Found design unit 1: I2C_MUX_PROXY-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd Line: 38
+    Info (12023): Found entity 1: I2C_MUX_PROXY File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_mux.vhd
+    Info (12022): Found design unit 1: I2C_MUX-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 62
+    Info (12023): Found entity 1: I2C_MUX File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 18
 Info (12021): Found 1 design units, including 0 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_tlc59116_pkg.vhd
     Info (12022): Found design unit 1: I2C_TLC59116_pkg File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116_pkg.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/sftclk.vhd
@@ -537,10 +607,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 0 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_pkg.vhd
     Info (12022): Found design unit 1: I2C_pkg File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd Line: 5
 Info (12127): Elaborating entity "I2C_SAMPLE" for the top level hierarchy
-Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 127
-Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 172
-Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 185
-Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 35
+Warning (10036): Verilog HDL or VHDL warning at sample.vhd(32): object "ledmodes1" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 32
+Warning (10036): Verilog HDL or VHDL warning at sample.vhd(60): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 60
+Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 191
+Info (12128): Elaborating entity "I2C_MUX" for hierarchy "I2C_MUX:I2CMUX" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 219
+Warning (10541): VHDL Signal Declaration warning at I2C_MUX.vhd(42): used implicit default value for signal "DATOUT_PXY" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 42
+Info (12128): Elaborating entity "I2C_MUX_PROXY" for hierarchy "I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 100
+Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 275
+Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116_0" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 288
+Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 36
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
@@ -553,15 +628,18 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register SFTCLK:i2cclk|counter[0] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd Line: 27
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 221 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "pPsw[2]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
+    Warning (15610): No output dependent on input pin "pPsw[3]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
+Info (21057): Implemented 234 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 0 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 213 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Sun Nov 08 17:23:20 2020
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:50
+    Info (21061): Implemented 226 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4795 megabytes
+    Info: Processing ended: Sat Nov 14 22:29:15 2020
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:49
 
 
