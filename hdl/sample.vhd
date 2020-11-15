@@ -196,7 +196,7 @@ port(
 );
 end component;
 
-component X68_FRONTPANEL_COTROLLER is
+component X68_FRONTPANEL_CONTROLLER is
 port(
     -- Control
     LED_POWER       :in     std_logic_vector(1 downto 0);
@@ -366,7 +366,7 @@ tlc59116_1 :I2C_TLC59116 port map(
 
 process(sysclk,srstn)begin
     if(srstn='0')then
-        ledmodes        0<=(others => "00");
+        ledmodes0       <=(others => "00");
         LED_POWER       <= "11";
         LED_HD_BUSY     <= '0';
         LED_TIMER       <= '0';
@@ -384,7 +384,7 @@ process(sysclk,srstn)begin
 --            ledmodes0(0)<="10";
         end if;
         if(pPsw(1)='0')then
-            LED_FDD0_ACCESS<="11"
+            LED_FDD0_ACCESS<="11";
 --            ledmodes0(1)<="10";
         end if;
         if(pPsw(2)='0')then
@@ -398,16 +398,16 @@ process(sysclk,srstn)begin
 end process;
 
 FP: X68_FRONTPANEL_CONTROLLER port map(
-    LED_POWER       => LED_POWER;
-    LED_HD_BUSY     => LED_HD_BUSY;
-    LED_TIMER       => LED_TIMER;
-    LED_FDD0_ACCESS => LED_FDD0_ACCESS;
-    LED_FDD1_ACCESS => LED_FDD1_ACCESS;
-    LED_FDD0_EJECT  => LED_FDD0_EJECT;
-    LED_FDD1_EJECT  => LED_FDD1_EJECT;
+    LED_POWER       => LED_POWER,
+    LED_HD_BUSY     => LED_HD_BUSY,
+    LED_TIMER       => LED_TIMER,
+    LED_FDD0_ACCESS => LED_FDD0_ACCESS,
+    LED_FDD1_ACCESS => LED_FDD1_ACCESS,
+    LED_FDD0_EJECT  => LED_FDD0_EJECT,
+    LED_FDD1_EJECT  => LED_FDD1_EJECT,
 
     -- to TLC59116 module
-	LEDMODES        => ledmodes1;
+	LEDMODES        => ledmodes1,
 
     clk		=>sysclk,
     rstn	=>srstn

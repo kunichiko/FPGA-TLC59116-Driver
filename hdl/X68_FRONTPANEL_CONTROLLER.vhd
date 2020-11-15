@@ -48,8 +48,9 @@ LIBRARY IEEE;
 	USE IEEE.STD_LOGIC_1164.ALL;
 	use IEEE.std_logic_arith.all;
 	USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+	use work.I2C_TLC59116_pkg.all;
 
-entity X68_FRONTPANEL_COTROLLER is
+entity X68_FRONTPANEL_CONTROLLER is
 port(
     -- Control
     LED_POWER       :in     std_logic_vector(1 downto 0);
@@ -66,9 +67,9 @@ port(
     clk			    :in     std_logic;
     rstn		    :in     std_logic
 );
-end X68_FRONTPANEL_COTROLLER;
+end X68_FRONTPANEL_CONTROLLER;
 
-architecture rtl of X68_FRONTPANEL_COTROLLER is
+architecture rtl of X68_FRONTPANEL_CONTROLLER is
 begin
     process(clk,rstn)
     begin
@@ -84,6 +85,10 @@ begin
                 LEDMODES(0) <= "00";
                 LEDMODES(1) <= "00";
                 LEDMODES(2) <= "10";
+            when "10" =>
+                LEDMODES(0) <= "00";
+                LEDMODES(1) <= "10";
+                LEDMODES(2) <= "00";
             when "11" =>
                 LEDMODES(0) <= "00";
                 LEDMODES(1) <= "10";
@@ -101,7 +106,7 @@ begin
                 LEDMODES(6) <= "10";
             end case;
 
-            LEDMODES(7) <= LED_TIMER;
+            LEDMODES(7) <= LED_TIMER & "0";
 
             case LED_FDD0_ACCESS is
             when "00" =>
@@ -122,7 +127,7 @@ begin
                 LEDMODES(10) <= "00";
             end case;
 
-            LEDMODES(11) <= LED_FDD0_EJECT;
+            LEDMODES(11) <= LED_FDD0_EJECT & "0";
 
             case LED_FDD1_ACCESS is
             when "00" =>
@@ -143,7 +148,7 @@ begin
                 LEDMODES(14) <= "00";
             end case;
 
-            LEDMODES(15) <= LED_FDD1_EJECT;
+            LEDMODES(15) <= LED_FDD1_EJECT & "0";
 
         end if;
     end process;
