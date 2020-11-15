@@ -64,10 +64,10 @@ port(
 	INIT		:out	std_logic;
 
     -- LED Control Ports
-	LEDMODES    :in led_mode_array(0 to 15);
+	LEDMODES    :in		led_mode_array(0 to 15);
 	
-	clk			:in std_logic;
-	rstn		:in std_logic
+	clk			:in		std_logic;
+	rstn		:in		std_logic
 );
 end I2C_TLC59116;
 

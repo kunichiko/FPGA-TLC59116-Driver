@@ -84,11 +84,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 12        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 13        :        :                   :         : 1A        :                
 pPsw[0]                      : 14        : input  : 2.5 V             :         : 1A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 15        :        :                   :         : 1B        :                
-~ALTERA_TMS~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 16        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tms          : 16        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 17        :        :                   :         : 1B        :                
-~ALTERA_TCK~ / RESERVED_INPUT : 18        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
-~ALTERA_TDI~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 19        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
-~ALTERA_TDO~                 : 20        : output : 2.5 V             :         : 1B        : N              
+altera_reserved_tck          : 18        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tdi          : 19        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
+altera_reserved_tdo          : 20        : output : 2.5 V             :         : 1B        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 21        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 22        :        :                   :         : 1B        :                
 VCCIO1B                      : 23        : power  :                   : 2.5V    : 1B        :                
