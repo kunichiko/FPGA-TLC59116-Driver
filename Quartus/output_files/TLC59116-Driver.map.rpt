@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TLC59116-Driver
-Sun Nov 15 15:01:39 2020
+Mon Nov 16 00:30:15 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,8 +13,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_1|I2Cstate
-  9. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate
+  8. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116|I2Cstate
+  9. State Machine - |I2C_SAMPLE|I2Crtc:rtc|I2Cstate
  10. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2CMUXstate
  11. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|state
  12. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state
@@ -26,15 +26,14 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  18. Parameter Settings for User Entity Instance: Top-level Entity: |I2C_SAMPLE
  19. Parameter Settings for User Entity Instance: I2C_MUX:I2CMUX
  20. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
- 21. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0
- 22. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_1
- 23. Port Connectivity Checks: "X68_FRONTPANEL_CONTROLLER:FP"
- 24. Port Connectivity Checks: "I2C_TLC59116:tlc59116_1"
- 25. Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"
- 26. Port Connectivity Checks: "SFTCLK:i2cclk"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
+ 21. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116
+ 22. Port Connectivity Checks: "X68_FRONTPANEL_CONTROLLER:FP"
+ 23. Port Connectivity Checks: "I2C_TLC59116:tlc59116"
+ 24. Port Connectivity Checks: "I2Crtc:rtc"
+ 25. Port Connectivity Checks: "SFTCLK:i2cclk"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
 
 
 
@@ -60,15 +59,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Nov 15 15:01:38 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 16 00:30:15 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TLC59116-Driver                             ;
 ; Top-level Entity Name              ; I2C_SAMPLE                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 344                                         ;
-;     Total combinational functions  ; 277                                         ;
-;     Dedicated logic registers      ; 153                                         ;
-; Total registers                    ; 153                                         ;
+; Total logic elements               ; 336                                         ;
+;     Total combinational functions  ; 289                                         ;
+;     Dedicated logic registers      ; 134                                         ;
+; Total registers                    ; 134                                         ;
 ; Total pins                         ; 8                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -193,6 +192,7 @@ refer to the applicable agreement for further details.
 ; ../hdl/I2C_TLC59116_pkg.vhd          ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116_pkg.vhd          ;         ;
 ; ../hdl/sftclk.vhd                    ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd                    ;         ;
 ; ../hdl/sample.vhd                    ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd                    ;         ;
+; ../hdl/I2Crtc_rx8025.vhd             ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2Crtc_rx8025.vhd             ;         ;
 ; ../hdl/I2CIF.vhd                     ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd                     ;         ;
 ; ../hdl/I2C_TLC59116.vhd              ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116.vhd              ;         ;
 ; ../hdl/I2C_pkg.vhd                   ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd                   ;         ;
@@ -204,20 +204,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 344        ;
+; Estimated Total logic elements              ; 336        ;
 ;                                             ;            ;
-; Total combinational functions               ; 277        ;
+; Total combinational functions               ; 289        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 188        ;
-;     -- 3 input functions                    ; 48         ;
-;     -- <=2 input functions                  ; 41         ;
+;     -- 4 input functions                    ; 195        ;
+;     -- 3 input functions                    ; 44         ;
+;     -- <=2 input functions                  ; 50         ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 272        ;
+;     -- normal mode                          ; 284        ;
 ;     -- arithmetic mode                      ; 5          ;
 ;                                             ;            ;
-; Total registers                             ; 153        ;
-;     -- Dedicated logic registers            ; 153        ;
+; Total registers                             ; 134        ;
+;     -- Dedicated logic registers            ; 134        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 8          ;
@@ -225,9 +225,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; pClk~input ;
-; Maximum fan-out                             ; 153        ;
-; Total fan-out                               ; 1511       ;
-; Average fan-out                             ; 3.37       ;
+; Maximum fan-out                             ; 134        ;
+; Total fan-out                               ; 1469       ;
+; Average fan-out                             ; 3.33       ;
 +---------------------------------------------+------------+
 
 
@@ -236,13 +236,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name               ; Library Name ;
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
-; |I2C_SAMPLE                       ; 277 (5)             ; 153 (5)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
-;    |I2CIF:I2C|                    ; 111 (111)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
-;    |I2C_MUX:I2CMUX|               ; 42 (16)             ; 19 (7)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
+; |I2C_SAMPLE                       ; 289 (5)             ; 134 (5)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
+;    |I2CIF:I2C|                    ; 136 (136)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
+;    |I2C_MUX:I2CMUX|               ; 45 (19)             ; 19 (7)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:0:U|   ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U ; I2C_MUX_PROXY             ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:1:U|   ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U ; I2C_MUX_PROXY             ; work         ;
-;    |I2C_TLC59116:tlc59116_0|      ; 46 (46)             ; 41 (41)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_0                ; I2C_TLC59116              ; work         ;
-;    |I2C_TLC59116:tlc59116_1|      ; 58 (58)             ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_1                ; I2C_TLC59116              ; work         ;
+;    |I2C_TLC59116:tlc59116|        ; 56 (56)             ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116                  ; I2C_TLC59116              ; work         ;
+;    |I2Crtc:rtc|                   ; 32 (32)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2Crtc:rtc                             ; I2Crtc                    ; work         ;
 ;    |SFTCLK:i2cclk|                ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                          ; SFTCLK                    ; work         ;
 ;    |X68_FRONTPANEL_CONTROLLER:FP| ; 1 (1)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|X68_FRONTPANEL_CONTROLLER:FP           ; X68_FRONTPANEL_CONTROLLER ; work         ;
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
@@ -251,7 +251,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_1|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
+; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
 +----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
 ; Name                       ; I2Cstate.IS_UPDATE_FIN ; I2Cstate.IS_UPDATE_LEDOUT3 ; I2Cstate.IS_UPDATE_LEDOUT2 ; I2Cstate.IS_UPDATE_LEDOUT1 ; I2Cstate.IS_UPDATE_LEDOUT0 ; I2Cstate.IS_UPDATE_REGADDR ; I2Cstate.IS_UPDATE_BGN ; I2Cstate.IS_IDLE ; I2Cstate.IS_INI_FIN ; I2Cstate.IS_INI_GRPFREQ ; I2Cstate.IS_INI_GRPPWM ; I2Cstate.IS_INI_PWM15 ; I2Cstate.IS_INI_PWM14 ; I2Cstate.IS_INI_PWM13 ; I2Cstate.IS_INI_PWM12 ; I2Cstate.IS_INI_PWM11 ; I2Cstate.IS_INI_PWM10 ; I2Cstate.IS_INI_PWM9 ; I2Cstate.IS_INI_PWM8 ; I2Cstate.IS_INI_PWM7 ; I2Cstate.IS_INI_PWM6 ; I2Cstate.IS_INI_PWM5 ; I2Cstate.IS_INI_PWM4 ; I2Cstate.IS_INI_PWM3 ; I2Cstate.IS_INI_PWM2 ; I2Cstate.IS_INI_PWM1 ; I2Cstate.IS_INI_PWM0 ; I2Cstate.IS_INI_MODE2 ; I2Cstate.IS_INI_MODE1 ; I2Cstate.IS_INI_REGADDR ; I2Cstate.IS_INI_BGN ;
 +----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
@@ -290,43 +290,39 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-+----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
-; Name                       ; I2Cstate.IS_UPDATE_FIN ; I2Cstate.IS_UPDATE_LEDOUT3 ; I2Cstate.IS_UPDATE_LEDOUT2 ; I2Cstate.IS_UPDATE_LEDOUT1 ; I2Cstate.IS_UPDATE_LEDOUT0 ; I2Cstate.IS_UPDATE_REGADDR ; I2Cstate.IS_UPDATE_BGN ; I2Cstate.IS_IDLE ; I2Cstate.IS_INI_FIN ; I2Cstate.IS_INI_GRPFREQ ; I2Cstate.IS_INI_GRPPWM ; I2Cstate.IS_INI_PWM15 ; I2Cstate.IS_INI_PWM14 ; I2Cstate.IS_INI_PWM13 ; I2Cstate.IS_INI_PWM12 ; I2Cstate.IS_INI_PWM11 ; I2Cstate.IS_INI_PWM10 ; I2Cstate.IS_INI_PWM9 ; I2Cstate.IS_INI_PWM8 ; I2Cstate.IS_INI_PWM7 ; I2Cstate.IS_INI_PWM6 ; I2Cstate.IS_INI_PWM5 ; I2Cstate.IS_INI_PWM4 ; I2Cstate.IS_INI_PWM3 ; I2Cstate.IS_INI_PWM2 ; I2Cstate.IS_INI_PWM1 ; I2Cstate.IS_INI_PWM0 ; I2Cstate.IS_INI_MODE2 ; I2Cstate.IS_INI_MODE1 ; I2Cstate.IS_INI_REGADDR ; I2Cstate.IS_INI_BGN ;
-+----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
-; I2Cstate.IS_INI_BGN        ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 0                   ;
-; I2Cstate.IS_INI_REGADDR    ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 1                       ; 1                   ;
-; I2Cstate.IS_INI_MODE1      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 1                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_MODE2      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM0       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM1       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM2       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM3       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM4       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM5       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM6       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM7       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM8       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM9       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM10      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM11      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM12      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM13      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM14      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_PWM15      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_GRPPWM     ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 1                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_GRPFREQ    ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 1                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_INI_FIN        ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 1                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_IDLE           ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 1                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_BGN     ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 1                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_REGADDR ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_LEDOUT0 ; 0                      ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_LEDOUT1 ; 0                      ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_LEDOUT2 ; 0                      ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_LEDOUT3 ; 0                      ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-; I2Cstate.IS_UPDATE_FIN     ; 1                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
-+----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2Crtc:rtc|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
++-------------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+---------------------+----------------------+----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+-----------------------+------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+------------------+--------------------+
+; Name                    ; I2Cstate.IS_WRRTCOFST ; I2Cstate.IS_WRRTCYER ; I2Cstate.IS_WRRTCMON ; I2Cstate.IS_WRRTCDAY ; I2Cstate.IS_WRRTCWEK ; I2Cstate.IS_WRRTCHR ; I2Cstate.IS_WRRTCMIN ; I2Cstate.IS_WRRTCSEC ; I2Cstate.IS_WRRTCCNT2 ; I2Cstate.IS_WRRTCCNT1 ; I2Cstate.IS_WRRTCWADR ; I2Cstate.IS_WRRTCSADR ; I2Cstate.IS_WRRTCBGN ; I2Cstate.IS_INIRTCEND ; I2Cstate.IS_INIRTCRYER ; I2Cstate.IS_INIRTCRMON ; I2Cstate.IS_INIRTCRDAY ; I2Cstate.IS_INIRTCRWEK ; I2Cstate.IS_INIRTCRHR ; I2Cstate.IS_INIRTCRMIN ; I2Cstate.IS_INIRTCRSEC ; I2Cstate.IS_INIRTCRCNT2 ; I2Cstate.IS_INIRTCRCNT1 ; I2Cstate.IS_INIRTCWADR ; I2Cstate.IS_INIRTCSADRW ; I2Cstate.IS_IDLE ; I2Cstate.IS_INIBGN ;
++-------------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+---------------------+----------------------+----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+-----------------------+------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+------------------+--------------------+
+; I2Cstate.IS_INIBGN      ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 0                  ;
+; I2Cstate.IS_IDLE        ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 1                ; 1                  ;
+; I2Cstate.IS_INIRTCSADRW ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 1                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCWADR  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 1                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRCNT1 ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 1                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRCNT2 ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 1                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRSEC  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 1                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRMIN  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 1                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRHR   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 1                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRWEK  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 1                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRDAY  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 1                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRMON  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 1                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCRYER  ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 1                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_INIRTCEND   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 1                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCBGN    ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 1                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCSADR   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 1                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCWADR   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 1                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCCNT1   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 1                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCCNT2   ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 1                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCSEC    ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 1                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCMIN    ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 1                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCHR     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 1                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCWEK    ; 0                     ; 0                    ; 0                    ; 0                    ; 1                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCDAY    ; 0                     ; 0                    ; 0                    ; 1                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCMON    ; 0                     ; 0                    ; 1                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCYER    ; 0                     ; 1                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
+; I2Cstate.IS_WRRTCOFST   ; 1                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                   ; 0                    ; 0                    ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                     ; 0                      ; 0                      ; 0                      ; 0                      ; 0                     ; 0                      ; 0                      ; 0                       ; 0                       ; 0                      ; 0                       ; 0                ; 1                  ;
++-------------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+---------------------+----------------------+----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+-----------------------+------------------------+------------------------+------------------------+------------------------+-----------------------+------------------------+------------------------+-------------------------+-------------------------+------------------------+-------------------------+------------------+--------------------+
 
 
 Encoding Type:  One-Hot
@@ -373,39 +369,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+----------------------------------------------------------+
 ; Register name                                ; Reason for Removal                                       ;
 +----------------------------------------------+----------------------------------------------------------+
-; ledmodes0[0][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[0][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[1][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[1][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[2][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[2][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[3][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[3][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[4][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[4][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[5][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[5][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[6][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[6][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[7][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[7][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[8][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[8][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[9][1]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[9][0]                              ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[10][1]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[10][0]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[11][1]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[11][0]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[12][1]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[12][0]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[13][1]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[13][0]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[14][1]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[14][0]                             ; Stuck at GND due to stuck port data_in                   ;
-; ledmodes0[15][1]                             ; Stuck at GND due to stuck port data_in                   ;
 ; LED_FDD0_ACCESS[1]                           ; Stuck at VCC due to stuck port data_in                   ;
-; ledmodes0[15][0]                             ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[15][0] ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[0][1]  ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[0][0]  ; Stuck at GND due to stuck port data_in                   ;
@@ -427,130 +391,93 @@ Encoding Type:  One-Hot
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[14][1] ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[14][0] ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|F_FINISH             ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|INIT                 ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|F_FINISH             ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|INIT                 ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[0][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[0][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[6][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0]    ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1]    ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|F_FINISH               ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|INIT                   ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|F_FINISH                          ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|INIT                              ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[15][0]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[0][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[0][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[1][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[2][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[2][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[3][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[3][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[4][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[4][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[5][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[5][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[6][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[7][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[7][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[8][1]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[8][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[10][0]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[11][0]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[12][1]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[12][0]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[14][1]      ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[14][0]      ; Stuck at GND due to stuck port data_in                   ;
 ; SFTCLK:i2cclk|selcounter[0]                  ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[13][1] ; Merged with X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[13][0] ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[15][1] ; Merged with X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[13][0] ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[1][1]  ; Merged with X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[13][0] ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[13][1]    ; Merged with I2C_TLC59116:tlc59116_1|D_LEDMODES[13][0]    ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][1]    ; Merged with I2C_TLC59116:tlc59116_1|D_LEDMODES[13][0]    ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][1]     ; Merged with I2C_TLC59116:tlc59116_1|D_LEDMODES[13][0]    ;
-; I2C_TLC59116:tlc59116_0|RESTART              ; Merged with I2C_TLC59116:tlc59116_0|NX_READ              ;
-; I2C_TLC59116:tlc59116_1|RESTART              ; Merged with I2C_TLC59116:tlc59116_1|NX_READ              ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[13][1]      ; Merged with I2C_TLC59116:tlc59116|D_LEDMODES[13][0]      ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[15][1]      ; Merged with I2C_TLC59116:tlc59116|D_LEDMODES[13][0]      ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[1][1]       ; Merged with I2C_TLC59116:tlc59116|D_LEDMODES[13][0]      ;
+; I2C_TLC59116:tlc59116|RESTART                ; Merged with I2C_TLC59116:tlc59116|NX_READ                ;
+; I2Crtc:rtc|TXOUT[4]                          ; Merged with I2Crtc:rtc|TXOUT[1]                          ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|D_LEDMODES[9][0]     ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|NX_READ              ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|NX_READ              ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_0|TXOUT[1]             ; Stuck at GND due to stuck port data_in                   ;
-; I2C_TLC59116:tlc59116_1|TXOUT[1]             ; Stuck at GND due to stuck port data_in                   ;
-; Total Number of Removed Registers = 128      ;                                                          ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[9][0]       ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|NX_READ                ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|TXOUT[1,3]                        ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|TXOUT[1]               ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCBGN              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCSADR             ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCWADR             ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCCNT1             ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCCNT2             ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCSEC              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCMIN              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCHR               ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCWEK              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCDAY              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCMON              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCYER              ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCOFST             ; Stuck at GND due to stuck port data_in                   ;
+; I2Crtc:rtc|TXOUT[5,6]                        ; Stuck at VCC due to stuck port data_in                   ;
+; Total Number of Removed Registers = 79       ;                                                          ;
 +----------------------------------------------+----------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                    ;
-+----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                                ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; ledmodes0[0][1]                              ; Stuck at GND              ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0],                                          ;
-;                                              ; due to stuck port data_in ; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1], I2C_TLC59116:tlc59116_0|TXOUT[1]         ;
-; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[15][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][0],                                          ;
-;                                              ; due to stuck port data_in ; I2C_TLC59116:tlc59116_1|D_LEDMODES[0][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[0][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][0], I2C_TLC59116:tlc59116_1|D_LEDMODES[2][1], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][0], I2C_TLC59116:tlc59116_1|D_LEDMODES[3][1], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][0], I2C_TLC59116:tlc59116_1|D_LEDMODES[4][1], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][0], I2C_TLC59116:tlc59116_1|D_LEDMODES[5][1], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][0], I2C_TLC59116:tlc59116_1|D_LEDMODES[6][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[7][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[8][0], ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][1],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][0],                                          ;
-;                                              ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[9][0], I2C_TLC59116:tlc59116_1|TXOUT[1]          ;
-; LED_FDD0_ACCESS[1]                           ; Stuck at VCC              ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[9][0]                                         ;
-;                                              ; due to stuck port data_in ;                                                                                     ;
-+----------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                  ;
++----------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; Register name                                ; Reason for Removal        ; Registers Removed due to This Register                                            ;
++----------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[15][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116|D_LEDMODES[15][0], I2C_TLC59116:tlc59116|D_LEDMODES[0][1],  ;
+;                                              ; due to stuck port data_in ; I2C_TLC59116:tlc59116|D_LEDMODES[0][0], I2C_TLC59116:tlc59116|D_LEDMODES[1][0],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[2][1], I2C_TLC59116:tlc59116|D_LEDMODES[2][0],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[3][1], I2C_TLC59116:tlc59116|D_LEDMODES[3][0],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[4][1], I2C_TLC59116:tlc59116|D_LEDMODES[4][0],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[5][1], I2C_TLC59116:tlc59116|D_LEDMODES[5][0],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[6][0], I2C_TLC59116:tlc59116|D_LEDMODES[7][1],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[7][0], I2C_TLC59116:tlc59116|D_LEDMODES[8][1],   ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[8][0], I2C_TLC59116:tlc59116|D_LEDMODES[10][0],  ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[11][0], I2C_TLC59116:tlc59116|D_LEDMODES[12][1], ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[12][0], I2C_TLC59116:tlc59116|D_LEDMODES[14][1], ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|D_LEDMODES[14][0], I2C_TLC59116:tlc59116|D_LEDMODES[9][0],  ;
+;                                              ;                           ; I2C_TLC59116:tlc59116|TXOUT[1]                                                    ;
+; I2Crtc:rtc|I2Cstate.IS_WRRTCBGN              ; Stuck at GND              ; I2Crtc:rtc|I2Cstate.IS_WRRTCSADR, I2Crtc:rtc|I2Cstate.IS_WRRTCWADR,               ;
+;                                              ; due to stuck port data_in ; I2Crtc:rtc|I2Cstate.IS_WRRTCCNT1, I2Crtc:rtc|I2Cstate.IS_WRRTCCNT2,               ;
+;                                              ;                           ; I2Crtc:rtc|I2Cstate.IS_WRRTCSEC, I2Crtc:rtc|I2Cstate.IS_WRRTCMIN,                 ;
+;                                              ;                           ; I2Crtc:rtc|I2Cstate.IS_WRRTCHR, I2Crtc:rtc|I2Cstate.IS_WRRTCWEK,                  ;
+;                                              ;                           ; I2Crtc:rtc|I2Cstate.IS_WRRTCDAY, I2Crtc:rtc|I2Cstate.IS_WRRTCMON,                 ;
+;                                              ;                           ; I2Crtc:rtc|I2Cstate.IS_WRRTCYER, I2Crtc:rtc|I2Cstate.IS_WRRTCOFST,                ;
+;                                              ;                           ; I2Crtc:rtc|TXOUT[6], I2Crtc:rtc|TXOUT[5]                                          ;
+; LED_FDD0_ACCESS[1]                           ; Stuck at VCC              ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[9][0]                                       ;
+;                                              ; due to stuck port data_in ;                                                                                   ;
++----------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -558,12 +485,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 153   ;
+; Total registers                              ; 134   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 2     ;
-; Number of registers using Asynchronous Clear ; 131   ;
+; Number of registers using Asynchronous Clear ; 116   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 97    ;
+; Number of registers using Clock Enable       ; 73    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -573,14 +500,14 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; I2CIF:I2C|INITTING                      ; 17      ;
+; SCLIN                                   ; 8       ;
+; I2CIF:I2C|INITTING                      ; 19      ;
 ; I2CIF:I2C|TXBIT                         ; 2       ;
-; SDAIN                                   ; 6       ;
-; SCLIN                                   ; 7       ;
+; SDAIN                                   ; 7       ;
 ; I2CIF:I2C|INITCOUNT[3]                  ; 2       ;
 ; I2CIF:I2C|INITCOUNT[1]                  ; 4       ;
-; I2C_TLC59116:tlc59116_0|WRn             ; 6       ;
-; I2C_TLC59116:tlc59116_1|WRn             ; 6       ;
+; I2Crtc:rtc|WRn                          ; 7       ;
+; I2C_TLC59116:tlc59116|WRn               ; 6       ;
 ; I2CIF:I2C|LASTSDA                       ; 1       ;
 ; SFTCLK:i2cclk|counter[5]                ; 2       ;
 ; SFTCLK:i2cclk|counter[4]                ; 2       ;
@@ -597,14 +524,17 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[1]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[2]                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[5]                               ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[8]                               ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|CLKST[0]                               ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBIT                                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[2]                               ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 12 LEs               ; 14 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBIT                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|RESTART                           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2CIF:I2C|STATE                                  ;
 ; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector3                         ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|Selector0 ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|Selector3 ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|Selector1 ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |I2C_SAMPLE|I2Crtc:rtc|Selector27                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
@@ -640,53 +570,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0 ;
-+------------------+----------+----------------------------------------+
-; Parameter Name   ; Value    ; Type                                   ;
-+------------------+----------+----------------------------------------+
-; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-+------------------+----------+----------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_1 ;
-+------------------+----------+----------------------------------------+
-; Parameter Name   ; Value    ; Type                                   ;
-+------------------+----------+----------------------------------------+
-; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
-; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
-+------------------+----------+----------------------------------------+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116 ;
++------------------+----------+--------------------------------------+
+; Parameter Name   ; Value    ; Type                                 ;
++------------------+----------+--------------------------------------+
+; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                      ;
+; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
+; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
+; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
+; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
+; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
+; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                      ;
++------------------+----------+--------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -704,7 +609,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "I2C_TLC59116:tlc59116_1"                                                            ;
+; Port Connectivity Checks: "I2C_TLC59116:tlc59116"                                                              ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -712,13 +617,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"                                                            ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; rdn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2Crtc:rtc"                                                                           ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; rdn    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; yehid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; yelid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; monid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dayhid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; daylid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wdayid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; horhid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; horlid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; minhid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; minlid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sechid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; seclid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rtcini ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; yehwd  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; yelwd  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; monwd  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; dayhwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; daylwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; wdaywd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; horhwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; horlwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; minhwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; minlwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sechwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; seclwd ; Input  ; Info     ; Stuck at GND                                                                        ;
+; rtcwr  ; Input  ; Info     ; Stuck at GND                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------+
@@ -736,24 +667,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 153                         ;
-;     CLR               ; 55                          ;
-;     ENA               ; 21                          ;
-;     ENA CLR           ; 74                          ;
+; cycloneiii_ff         ; 134                         ;
+;     CLR               ; 60                          ;
+;     ENA               ; 17                          ;
+;     ENA CLR           ; 54                          ;
 ;     ENA CLR SLD       ; 2                           ;
 ;     plain             ; 1                           ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 277                         ;
+; cycloneiii_lcell_comb ; 289                         ;
 ;     arith             ; 5                           ;
 ;         2 data inputs ; 5                           ;
-;     normal            ; 272                         ;
+;     normal            ; 284                         ;
 ;         1 data inputs ; 14                          ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 48                          ;
-;         4 data inputs ; 188                         ;
+;         2 data inputs ; 31                          ;
+;         3 data inputs ; 44                          ;
+;         4 data inputs ; 195                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.92                        ;
+; Average LUT depth     ; 4.08                        ;
 +-----------------------+-----------------------------+
 
 
@@ -772,7 +703,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 15 15:01:12 2020
+    Info: Processing started: Mon Nov 16 00:29:49 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TLC59116-Driver -c TLC59116-Driver
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -780,7 +711,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: X68_FRONTPANEL_CONTROLLER-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 72
     Info (12023): Found entity 1: X68_FRONTPANEL_CONTROLLER File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 53
 Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_mux_proxy.vhd
-    Info (12022): Found design unit 1: I2C_MUX_PROXY-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd Line: 38
+    Info (12022): Found design unit 1: I2C_MUX_PROXY-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd Line: 39
     Info (12023): Found entity 1: I2C_MUX_PROXY File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_mux.vhd
     Info (12022): Found design unit 1: I2C_MUX-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 62
@@ -805,27 +736,28 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 0 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_pkg.vhd
     Info (12022): Found design unit 1: I2C_pkg File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd Line: 5
 Info (12127): Elaborating entity "I2C_SAMPLE" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at sample.vhd(61): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 61
-Warning (10631): VHDL Process Statement warning at sample.vhd(367): inferring latch(es) for signal or variable "LED_POWER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Warning (10631): VHDL Process Statement warning at sample.vhd(367): inferring latch(es) for signal or variable "LED_TIMER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Warning (10631): VHDL Process Statement warning at sample.vhd(367): inferring latch(es) for signal or variable "LED_FDD1_ACCESS", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Warning (10631): VHDL Process Statement warning at sample.vhd(367): inferring latch(es) for signal or variable "LED_FDD1_EJECT", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_FDD1_EJECT" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_FDD1_ACCESS[0]" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_FDD1_ACCESS[1]" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_TIMER" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_POWER[0]" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (10041): Inferred latch for "LED_POWER[1]" at sample.vhd(367) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 367
-Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 220
-Info (12128): Elaborating entity "I2C_MUX" for hierarchy "I2C_MUX:I2CMUX" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 248
-Info (12128): Elaborating entity "I2C_MUX_PROXY" for hierarchy "I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 100
-Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 304
-Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116_0" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 317
-Info (12128): Elaborating entity "X68_FRONTPANEL_CONTROLLER" for hierarchy "X68_FRONTPANEL_CONTROLLER:FP" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 400
+Warning (10036): Verilog HDL or VHDL warning at sample.vhd(60): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 60
+Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_POWER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_TIMER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_FDD1_ACCESS", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_FDD1_EJECT", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_FDD1_EJECT" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_FDD1_ACCESS[0]" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_FDD1_ACCESS[1]" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_TIMER" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_POWER[0]" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (10041): Inferred latch for "LED_POWER[1]" at sample.vhd(443) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
+Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 270
+Info (12128): Elaborating entity "I2C_MUX" for hierarchy "I2C_MUX:I2CMUX" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 298
+Info (12128): Elaborating entity "I2C_MUX_PROXY" for hierarchy "I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 101
+Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 354
+Info (12128): Elaborating entity "I2Crtc" for hierarchy "I2Crtc:rtc" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 366
+Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 418
+Info (12128): Elaborating entity "X68_FRONTPANEL_CONTROLLER" for hierarchy "X68_FRONTPANEL_CONTROLLER:FP" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 470
 Warning (10631): VHDL Process Statement warning at X68_FRONTPANEL_CONTROLLER.vhd(74): inferring latch(es) for signal or variable "LEDMODES", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 74
 Info (10041): Inferred latch for "LEDMODES[3][0]" at X68_FRONTPANEL_CONTROLLER.vhd(74) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 74
 Info (10041): Inferred latch for "LEDMODES[3][1]" at X68_FRONTPANEL_CONTROLLER.vhd(74) File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 74
-Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 40
+Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 39
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
@@ -840,15 +772,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pPsw[3]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
-Info (21057): Implemented 352 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 344 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 0 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 344 logic cells
+    Info (21061): Implemented 336 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Sun Nov 15 15:01:39 2020
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:48
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Mon Nov 16 00:30:15 2020
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:47
 
 

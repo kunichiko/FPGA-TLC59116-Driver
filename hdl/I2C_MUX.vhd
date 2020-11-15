@@ -84,6 +84,7 @@ component I2C_MUX_PROXY is
 		-- to Driver
 		TXEMP_PXY   :out    std_logic;						--tx buffer empty
 		WRn_PXY	    :in     std_logic;						--write
+		RDn_PXY	    :in     std_logic;						--read
 		RESTART_PXY :in     std_logic;						--make re-start condition
 		START_PXY   :in     std_logic;						--make start condition
 		FINISH_PXY  :in     std_logic;						--next data is final(make stop condition)
@@ -104,6 +105,7 @@ begin
 			TXEMP		=> TXEMP,
 			TXEMP_PXY	=> TXEMP_PXY(I),
 			WRn_PXY		=> WRn_PXY(I),
+			RDn_PXY		=> RDn_PXY(I),
 			RESTART_PXY	=> RESTART_PXY(I),
 			START_PXY	=> START_PXY(I),
 			FINISH_PXY	=> FINISH_PXY(I),
@@ -138,6 +140,8 @@ begin
 	begin
 		if(rstn='0')then
 			I2CMUXstate<=IS_IDLE;
+			BUSGNT<=(others => '0');
+			SEL<=0;
 		elsif(clk' event and clk='1')then
 			case I2CMUXstate is
 			when IS_IDLE =>

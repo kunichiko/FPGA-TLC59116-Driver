@@ -25,6 +25,7 @@ port(
     -- to Driver
 	TXEMP_PXY   :out    std_logic;						--tx buffer empty
 	WRn_PXY	    :in     std_logic;						--write
+	RDn_PXY	    :in     std_logic;						--read
 	RESTART_PXY :in     std_logic;						--make re-start condition
 	START_PXY   :in     std_logic;						--make start condition
 	FINISH_PXY  :in     std_logic;						--next data is final(make stop condition)
@@ -71,7 +72,7 @@ begin
                     BUSACK<='1';
                 end if;
             when IS_BUSY =>
-                if(WRn_PXY='0' and FINISH_PXY='1')then
+                if((WRn_PXY='0' or RDn_PXY='0') and FINISH_PXY='1')then
                     state<=IS_FIN;
                 end if;
             when IS_FIN =>
