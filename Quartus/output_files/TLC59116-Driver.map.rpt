@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TLC59116-Driver
-Sat Nov 14 22:29:15 2020
+Sun Nov 15 12:28:10 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,23 +13,33 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate
-  9. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2CMUXstate
- 10. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |I2C_SAMPLE
- 17. Parameter Settings for User Entity Instance: I2C_MUX:I2CMUX
- 18. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
- 19. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0
- 20. Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"
- 21. Port Connectivity Checks: "SFTCLK:i2cclk"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_1|I2Cstate
+ 11. State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_0|I2Cstate
+ 12. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2CMUXstate
+ 13. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|state
+ 14. State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for sld_signaltap:auto_signaltap_0
+ 21. Parameter Settings for User Entity Instance: Top-level Entity: |I2C_SAMPLE
+ 22. Parameter Settings for User Entity Instance: I2C_MUX:I2CMUX
+ 23. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
+ 24. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_0
+ 25. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_1
+ 26. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 27. Port Connectivity Checks: "I2C_TLC59116:tlc59116_1"
+ 28. Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"
+ 29. Port Connectivity Checks: "SFTCLK:i2cclk"
+ 30. Signal Tap Logic Analyzer Settings
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 34. Analysis & Synthesis Messages
 
 
 
@@ -55,18 +65,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 14 22:29:15 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sun Nov 15 12:28:10 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TLC59116-Driver                             ;
 ; Top-level Entity Name              ; I2C_SAMPLE                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 226                                         ;
-;     Total combinational functions  ; 195                                         ;
-;     Dedicated logic registers      ; 95                                          ;
-; Total registers                    ; 95                                          ;
+; Total logic elements               ; 1,063                                       ;
+;     Total combinational functions  ; 788                                         ;
+;     Dedicated logic registers      ; 677                                         ;
+; Total registers                    ; 677                                         ;
 ; Total pins                         ; 8                                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
+; Total memory bits                  ; 24,576                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -173,24 +183,81 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
-; ../hdl/I2C_MUX_PROXY.vhd         ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd    ;         ;
-; ../hdl/I2C_MUX.vhd               ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd          ;         ;
-; ../hdl/I2C_TLC59116_pkg.vhd      ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116_pkg.vhd ;         ;
-; ../hdl/sftclk.vhd                ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd           ;         ;
-; ../hdl/sample.vhd                ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd           ;         ;
-; ../hdl/I2CIF.vhd                 ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd            ;         ;
-; ../hdl/I2C_TLC59116.vhd          ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116.vhd     ;         ;
-; ../hdl/I2C_pkg.vhd               ; yes             ; User VHDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd          ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                 ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                       ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+-------------+
+; ../hdl/I2C_MUX_PROXY.vhd                                           ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX_PROXY.vhd                                                      ;             ;
+; ../hdl/I2C_MUX.vhd                                                 ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd                                                            ;             ;
+; ../hdl/I2C_TLC59116_pkg.vhd                                        ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116_pkg.vhd                                                   ;             ;
+; ../hdl/sftclk.vhd                                                  ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd                                                             ;             ;
+; ../hdl/sample.vhd                                                  ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd                                                             ;             ;
+; ../hdl/I2CIF.vhd                                                   ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd                                                              ;             ;
+; ../hdl/I2C_TLC59116.vhd                                            ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_TLC59116.vhd                                                       ;             ;
+; ../hdl/I2C_pkg.vhd                                                 ; yes             ; User VHDL File                               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd                                                            ;             ;
+; sld_signaltap.vhd                                                  ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap.vhd                                           ;             ;
+; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd                                      ;             ;
+; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_control.vhd                                         ;             ;
+; lpm_shiftreg.tdf                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_shiftreg.tdf                                            ;             ;
+; lpm_constant.inc                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                            ;             ;
+; dffeea.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffeea.inc                                                  ;             ;
+; aglobal181.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                              ;             ;
+; sld_mbpmg.vhd                                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_mbpmg.vhd                                               ;             ;
+; sld_ela_trigger_flow_mgr.vhd                                       ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd                                ;             ;
+; sld_buffer_manager.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_buffer_manager.vhd                                      ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                              ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                       ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                 ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                              ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                               ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                  ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                  ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                ;             ;
+; db/altsyncram_0j14.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/altsyncram_0j14.tdf                                             ;             ;
+; altdpram.tdf                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.tdf                                                ;             ;
+; memmodes.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/others/maxplus2/memmodes.inc                                              ;             ;
+; a_hdffe.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_hdffe.inc                                                 ;             ;
+; alt_le_rden_reg.inc                                                ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_le_rden_reg.inc                                         ;             ;
+; altsyncram.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.inc                                              ;             ;
+; lpm_mux.tdf                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                 ;             ;
+; muxlut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/muxlut.inc                                                  ;             ;
+; bypassff.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                                ;             ;
+; altshift.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                                ;             ;
+; db/mux_j7c.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/mux_j7c.tdf                                                     ;             ;
+; lpm_decode.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.tdf                                              ;             ;
+; declut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/declut.inc                                                  ;             ;
+; lpm_compare.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                                             ;             ;
+; db/decode_3af.tdf                                                  ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/decode_3af.tdf                                                  ;             ;
+; lpm_counter.tdf                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                                             ;             ;
+; lpm_add_sub.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                             ;             ;
+; cmpconst.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cmpconst.inc                                                ;             ;
+; lpm_counter.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                                             ;             ;
+; alt_counter_stratix.inc                                            ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                                     ;             ;
+; db/cntr_jph.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_jph.tdf                                                    ;             ;
+; db/cmpr_frb.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_frb.tdf                                                    ;             ;
+; db/cntr_cki.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_cki.tdf                                                    ;             ;
+; db/cntr_6rh.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_6rh.tdf                                                    ;             ;
+; db/cmpr_hrb.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_hrb.tdf                                                    ;             ;
+; db/cntr_odi.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_odi.tdf                                                    ;             ;
+; db/cmpr_drb.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_drb.tdf                                                    ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                              ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                               ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                           ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_hub.vhd                                                 ; altera_sld  ;
+; db/ip/sld06b3d628/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                            ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------+-------------+
 
 
 +----------------------------------------------------------+
@@ -198,46 +265,159 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 226        ;
+; Estimated Total logic elements              ; 1,063      ;
 ;                                             ;            ;
-; Total combinational functions               ; 195        ;
+; Total combinational functions               ; 788        ;
 ; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 121        ;
-;     -- 3 input functions                    ; 36         ;
-;     -- <=2 input functions                  ; 38         ;
+;     -- 4 input functions                    ; 388        ;
+;     -- 3 input functions                    ; 200        ;
+;     -- <=2 input functions                  ; 200        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 190        ;
-;     -- arithmetic mode                      ; 5          ;
+;     -- normal mode                          ; 690        ;
+;     -- arithmetic mode                      ; 98         ;
 ;                                             ;            ;
-; Total registers                             ; 95         ;
-;     -- Dedicated logic registers            ; 95         ;
+; Total registers                             ; 677        ;
+;     -- Dedicated logic registers            ; 677        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 8          ;
+; Total memory bits                           ; 24576      ;
 ;                                             ;            ;
 ; Embedded Multiplier 9-bit elements          ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; pClk~input ;
-; Maximum fan-out                             ; 95         ;
-; Total fan-out                               ; 1004       ;
-; Average fan-out                             ; 3.26       ;
+; Maximum fan-out                             ; 357        ;
+; Total fan-out                               ; 4993       ;
+; Average fan-out                             ; 3.33       ;
 +---------------------------------------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                      ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name   ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
-; |I2C_SAMPLE                     ; 195 (4)             ; 95 (4)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE    ; work         ;
-;    |I2CIF:I2C|                  ; 101 (101)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF         ; work         ;
-;    |I2C_MUX:I2CMUX|             ; 20 (9)              ; 10 (5)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX       ; work         ;
-;       |I2C_MUX_PROXY:\GEN1:0:U| ; 11 (11)             ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U ; I2C_MUX_PROXY ; work         ;
-;    |I2C_TLC59116:tlc59116_0|    ; 56 (56)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_0                ; I2C_TLC59116  ; work         ;
-;    |SFTCLK:i2cclk|              ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                          ; SFTCLK        ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                    ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |I2C_SAMPLE                                                                                                                             ; 788 (5)             ; 677 (5)                   ; 24576       ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                                                                                                                                                                                                                                                                                                                            ; I2C_SAMPLE                        ; work         ;
+;    |I2CIF:I2C|                                                                                                                          ; 112 (112)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                                                                                                                                                                                                                                                                                                                                  ; I2CIF                             ; work         ;
+;    |I2C_MUX:I2CMUX|                                                                                                                     ; 43 (17)             ; 19 (7)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                                                                                                                                                                                                                                                                                                                             ; I2C_MUX                           ; work         ;
+;       |I2C_MUX_PROXY:\GEN1:0:U|                                                                                                         ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U                                                                                                                                                                                                                                                                                                     ; I2C_MUX_PROXY                     ; work         ;
+;       |I2C_MUX_PROXY:\GEN1:1:U|                                                                                                         ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U                                                                                                                                                                                                                                                                                                     ; I2C_MUX_PROXY                     ; work         ;
+;    |I2C_TLC59116:tlc59116_0|                                                                                                            ; 55 (55)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_0                                                                                                                                                                                                                                                                                                                    ; I2C_TLC59116                      ; work         ;
+;    |I2C_TLC59116:tlc59116_1|                                                                                                            ; 54 (54)             ; 43 (43)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116_1                                                                                                                                                                                                                                                                                                                    ; I2C_TLC59116                      ; work         ;
+;    |SFTCLK:i2cclk|                                                                                                                      ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                                                                                                                                                                                                                                                                                                                              ; SFTCLK                            ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 127 (1)             ; 91 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 126 (0)             ; 91 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 126 (0)             ; 91 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 126 (1)             ; 91 (5)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 125 (0)             ; 86 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 125 (86)            ; 86 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 21 (21)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
+;    |sld_signaltap:auto_signaltap_0|                                                                                                     ; 378 (2)             ; 438 (12)                  ; 24576       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0                                                                                                                                                                                                                                                                                                             ; sld_signaltap                     ; work         ;
+;       |sld_signaltap_impl:sld_signaltap_body|                                                                                           ; 376 (0)             ; 426 (0)                   ; 24576       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body                                                                                                                                                                                                                                                                       ; sld_signaltap_impl                ; work         ;
+;          |sld_signaltap_implb:sld_signaltap_body|                                                                                       ; 376 (88)            ; 426 (108)                 ; 24576       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body                                                                                                                                                                                                                                ; sld_signaltap_implb               ; work         ;
+;             |altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|                                                            ; 27 (0)              ; 76 (76)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem                                                                                                                                                                 ; altdpram                          ; work         ;
+;                |lpm_decode:wdecoder|                                                                                                    ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder                                                                                                                                             ; lpm_decode                        ; work         ;
+;                   |decode_3af:auto_generated|                                                                                           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder|decode_3af:auto_generated                                                                                                                   ; decode_3af                        ; work         ;
+;                |lpm_mux:mux|                                                                                                            ; 25 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux                                                                                                                                                     ; lpm_mux                           ; work         ;
+;                   |mux_j7c:auto_generated|                                                                                              ; 25 (25)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux|mux_j7c:auto_generated                                                                                                                              ; mux_j7c                           ; work         ;
+;             |altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|                                                                           ; 0 (0)               ; 0 (0)                     ; 24576       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram                                                                                                                                                                                ; altsyncram                        ; work         ;
+;                |altsyncram_0j14:auto_generated|                                                                                         ; 0 (0)               ; 0 (0)                     ; 24576       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_0j14:auto_generated                                                                                                                                                 ; altsyncram_0j14                   ; work         ;
+;             |lpm_shiftreg:segment_offset_config_deserialize|                                                                            ; 0 (0)               ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:segment_offset_config_deserialize                                                                                                                                                                                 ; lpm_shiftreg                      ; work         ;
+;             |lpm_shiftreg:status_register|                                                                                              ; 17 (17)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:status_register                                                                                                                                                                                                   ; lpm_shiftreg                      ; work         ;
+;             |serial_crc_16:\tdo_crc_gen:tdo_crc_calc|                                                                                   ; 14 (14)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc                                                                                                                                                                                        ; serial_crc_16                     ; work         ;
+;             |sld_buffer_manager:sld_buffer_manager_inst|                                                                                ; 92 (92)             ; 69 (69)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst                                                                                                                                                                                     ; sld_buffer_manager                ; work         ;
+;             |sld_ela_control:ela_control|                                                                                               ; 16 (1)              ; 46 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control                                                                                                                                                                                                    ; sld_ela_control                   ; work         ;
+;                |lpm_shiftreg:trigger_config_deserialize|                                                                                ; 0 (0)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|lpm_shiftreg:trigger_config_deserialize                                                                                                                                                            ; lpm_shiftreg                      ; work         ;
+;                |sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|                                 ; 12 (0)              ; 30 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm                                                                                                             ; sld_ela_basic_multi_level_trigger ; work         ;
+;                   |lpm_shiftreg:trigger_condition_deserialize|                                                                          ; 0 (0)               ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|lpm_shiftreg:trigger_condition_deserialize                                                                  ; lpm_shiftreg                      ; work         ;
+;                   |sld_mbpmg:\trigger_modules_gen:0:trigger_match|                                                                      ; 12 (0)              ; 12 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match                                                              ; sld_mbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1|                                                            ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1        ; sld_sbpmg                         ; work         ;
+;                |sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|                                                          ; 3 (3)               ; 11 (1)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity                                                                                                                                      ; sld_ela_trigger_flow_mgr          ; work         ;
+;                   |lpm_shiftreg:trigger_config_deserialize|                                                                             ; 0 (0)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|lpm_shiftreg:trigger_config_deserialize                                                                                              ; lpm_shiftreg                      ; work         ;
+;             |sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|                                          ; 92 (9)              ; 77 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst                                                                                                                                               ; sld_offload_buffer_mgr            ; work         ;
+;                |lpm_counter:\adv_point_3_and_more:advance_pointer_counter|                                                              ; 5 (0)               ; 3 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter                                                                                     ; lpm_counter                       ; work         ;
+;                   |cntr_jph:auto_generated|                                                                                             ; 5 (5)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter|cntr_jph:auto_generated                                                             ; cntr_jph                          ; work         ;
+;                |lpm_counter:read_pointer_counter|                                                                                       ; 12 (0)              ; 12 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter                                                                                                              ; lpm_counter                       ; work         ;
+;                   |cntr_cki:auto_generated|                                                                                             ; 12 (12)             ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter|cntr_cki:auto_generated                                                                                      ; cntr_cki                          ; work         ;
+;                |lpm_counter:status_advance_pointer_counter|                                                                             ; 7 (0)               ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter                                                                                                    ; lpm_counter                       ; work         ;
+;                   |cntr_6rh:auto_generated|                                                                                             ; 7 (7)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter|cntr_6rh:auto_generated                                                                            ; cntr_6rh                          ; work         ;
+;                |lpm_counter:status_read_pointer_counter|                                                                                ; 3 (0)               ; 1 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter                                                                                                       ; lpm_counter                       ; work         ;
+;                   |cntr_odi:auto_generated|                                                                                             ; 3 (3)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter|cntr_odi:auto_generated                                                                               ; cntr_odi                          ; work         ;
+;                |lpm_shiftreg:info_data_shift_out|                                                                                       ; 25 (25)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:info_data_shift_out                                                                                                              ; lpm_shiftreg                      ; work         ;
+;                |lpm_shiftreg:ram_data_shift_out|                                                                                        ; 6 (6)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                               ; lpm_shiftreg                      ; work         ;
+;                |lpm_shiftreg:status_data_shift_out|                                                                                     ; 25 (25)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                            ; lpm_shiftreg                      ; work         ;
+;             |sld_rom_sr:crc_rom_sr|                                                                                                     ; 30 (30)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                          ; sld_rom_sr                        ; work         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_0j14:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4096         ; 6            ; 4096         ; 6            ; 24576 ; None ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                             ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                                 ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |I2C_SAMPLE|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
++--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2C_TLC59116:tlc59116_1|I2Cstate                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
+; Name                       ; I2Cstate.IS_UPDATE_FIN ; I2Cstate.IS_UPDATE_LEDOUT3 ; I2Cstate.IS_UPDATE_LEDOUT2 ; I2Cstate.IS_UPDATE_LEDOUT1 ; I2Cstate.IS_UPDATE_LEDOUT0 ; I2Cstate.IS_UPDATE_REGADDR ; I2Cstate.IS_UPDATE_BGN ; I2Cstate.IS_IDLE ; I2Cstate.IS_INI_FIN ; I2Cstate.IS_INI_GRPFREQ ; I2Cstate.IS_INI_GRPPWM ; I2Cstate.IS_INI_PWM15 ; I2Cstate.IS_INI_PWM14 ; I2Cstate.IS_INI_PWM13 ; I2Cstate.IS_INI_PWM12 ; I2Cstate.IS_INI_PWM11 ; I2Cstate.IS_INI_PWM10 ; I2Cstate.IS_INI_PWM9 ; I2Cstate.IS_INI_PWM8 ; I2Cstate.IS_INI_PWM7 ; I2Cstate.IS_INI_PWM6 ; I2Cstate.IS_INI_PWM5 ; I2Cstate.IS_INI_PWM4 ; I2Cstate.IS_INI_PWM3 ; I2Cstate.IS_INI_PWM2 ; I2Cstate.IS_INI_PWM1 ; I2Cstate.IS_INI_PWM0 ; I2Cstate.IS_INI_MODE2 ; I2Cstate.IS_INI_MODE1 ; I2Cstate.IS_INI_REGADDR ; I2Cstate.IS_INI_BGN ;
++----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
+; I2Cstate.IS_INI_BGN        ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 0                   ;
+; I2Cstate.IS_INI_REGADDR    ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 1                       ; 1                   ;
+; I2Cstate.IS_INI_MODE1      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 1                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_MODE2      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM0       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM1       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM2       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM3       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM4       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM5       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM6       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM7       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM8       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM9       ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM10      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM11      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM12      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM13      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM14      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_PWM15      ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_GRPPWM     ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 1                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_GRPFREQ    ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 1                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_INI_FIN        ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 1                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_IDLE           ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 1                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_BGN     ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 1                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_REGADDR ; 0                      ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_LEDOUT0 ; 0                      ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_LEDOUT1 ; 0                      ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_LEDOUT2 ; 0                      ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_LEDOUT3 ; 0                      ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
+; I2Cstate.IS_UPDATE_FIN     ; 1                      ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                      ; 0                ; 0                   ; 0                       ; 0                      ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                     ; 0                     ; 0                       ; 1                   ;
++----------------------------+------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+------------------------+------------------+---------------------+-------------------------+------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-----------------------+-----------------------+-------------------------+---------------------+
 
 
 Encoding Type:  One-Hot
@@ -294,118 +474,219 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------+
-; State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state ;
-+---------------+---------------+--------------+---------------------------+
-; Name          ; state.IS_BUSY ; state.IS_REQ ; state.IS_IDLE             ;
-+---------------+---------------+--------------+---------------------------+
-; state.IS_IDLE ; 0             ; 0            ; 0                         ;
-; state.IS_REQ  ; 0             ; 1            ; 1                         ;
-; state.IS_BUSY ; 1             ; 0            ; 1                         ;
-+---------------+---------------+--------------+---------------------------+
++-----------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|state    ;
++---------------+--------------+---------------+--------------+---------------+
+; Name          ; state.IS_FIN ; state.IS_BUSY ; state.IS_REQ ; state.IS_IDLE ;
++---------------+--------------+---------------+--------------+---------------+
+; state.IS_IDLE ; 0            ; 0             ; 0            ; 0             ;
+; state.IS_REQ  ; 0            ; 0             ; 1            ; 1             ;
+; state.IS_BUSY ; 0            ; 1             ; 0            ; 1             ;
+; state.IS_FIN  ; 1            ; 0             ; 0            ; 1             ;
++---------------+--------------+---------------+--------------+---------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+-------------------------------------------+---------------------------------------------+
-; Register name                             ; Reason for Removal                          ;
-+-------------------------------------------+---------------------------------------------+
-; ledmodes0[0][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[1][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[2][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[2][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[3][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[3][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[4][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[4][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[5][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[5][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[6][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[6][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[7][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[7][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[8][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[8][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[9][1]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[9][0]                           ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[10][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[10][0]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[11][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[11][0]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[12][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[12][0]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[13][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[13][0]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[14][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[14][0]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[15][1]                          ; Stuck at GND due to stuck port data_in      ;
-; ledmodes0[15][0]                          ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|F_FINISH          ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|INIT              ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0] ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1] ; Stuck at GND due to stuck port data_in      ;
-; SFTCLK:i2cclk|selcounter[0]               ; Stuck at GND due to stuck port data_in      ;
-; I2C_TLC59116:tlc59116_0|RESTART           ; Merged with I2C_TLC59116:tlc59116_0|NX_READ ;
-; I2C_TLC59116:tlc59116_0|NX_READ           ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 65    ;                                             ;
-+-------------------------------------------+---------------------------------------------+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------+
+; State Machine - |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state    ;
++---------------+--------------+---------------+--------------+---------------+
+; Name          ; state.IS_FIN ; state.IS_BUSY ; state.IS_REQ ; state.IS_IDLE ;
++---------------+--------------+---------------+--------------+---------------+
+; state.IS_IDLE ; 0            ; 0             ; 0            ; 0             ;
+; state.IS_REQ  ; 0            ; 0             ; 1            ; 1             ;
+; state.IS_BUSY ; 0            ; 1             ; 0            ; 1             ;
+; state.IS_FIN  ; 1            ; 0             ; 0            ; 1             ;
++---------------+--------------+---------------+--------------+---------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                       ;
-+-----------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name   ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+-----------------+---------------------------+-------------------------------------------------------------------------------------+
-; ledmodes0[0][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0],                                          ;
-;                 ; due to stuck port data_in ; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0], I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0], ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0],                                          ;
-;                 ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1]                                           ;
-+-----------------+---------------------------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++-------------------------------------------+------------------------------------------------------+
+; Register name                             ; Reason for Removal                                   ;
++-------------------------------------------+------------------------------------------------------+
+; ledmodes1[15][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[0][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[1][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[2][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[2][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[3][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[3][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[4][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[4][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[5][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[5][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[6][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[6][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[7][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[7][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[8][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[8][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[9][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[9][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[10][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[10][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[11][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[11][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[12][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[12][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[13][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[13][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[14][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[14][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[15][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes0[15][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[1][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[1][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[2][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[2][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[3][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[3][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[4][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[4][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[5][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[5][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[6][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[6][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[7][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[7][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[8][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[8][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[9][1]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[9][0]                           ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[10][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[10][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[11][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[11][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[12][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[12][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[13][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[13][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[14][1]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[14][0]                          ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[15][1]                          ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|F_FINISH          ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|INIT              ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|F_FINISH          ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|INIT              ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[6][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[6][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[9][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[13][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[13][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0]  ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0] ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1] ; Stuck at GND due to stuck port data_in               ;
+; SFTCLK:i2cclk|selcounter[0]               ; Stuck at GND due to stuck port data_in               ;
+; ledmodes1[0][1]                           ; Merged with ledmodes1[0][0]                          ;
+; I2C_TLC59116:tlc59116_1|D_LEDMODES[0][1]  ; Merged with I2C_TLC59116:tlc59116_1|D_LEDMODES[0][0] ;
+; I2C_TLC59116:tlc59116_0|RESTART           ; Merged with I2C_TLC59116:tlc59116_0|NX_READ          ;
+; I2C_TLC59116:tlc59116_1|RESTART           ; Merged with I2C_TLC59116:tlc59116_1|NX_READ          ;
+; I2C_TLC59116:tlc59116_1|NX_READ           ; Stuck at GND due to stuck port data_in               ;
+; I2C_TLC59116:tlc59116_0|NX_READ           ; Stuck at GND due to stuck port data_in               ;
+; Total Number of Removed Registers = 131   ;                                                      ;
++-------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name    ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++------------------+---------------------------+-------------------------------------------------------------------------------------+
+; ledmodes1[15][0] ; Stuck at GND              ; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][0],                                          ;
+;                  ; due to stuck port data_in ; I2C_TLC59116:tlc59116_1|D_LEDMODES[1][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[1][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[2][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[2][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[3][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[3][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[4][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[4][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[5][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[5][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[6][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[6][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[7][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[8][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[9][1], I2C_TLC59116:tlc59116_1|D_LEDMODES[9][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[10][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[11][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[12][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[13][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[13][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[14][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_1|D_LEDMODES[15][1]                                           ;
+; ledmodes0[0][0]  ; Stuck at GND              ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][0],                                          ;
+;                  ; due to stuck port data_in ; I2C_TLC59116:tlc59116_0|D_LEDMODES[0][0], I2C_TLC59116:tlc59116_0|D_LEDMODES[1][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[2][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[2][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[3][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[3][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[4][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[4][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[5][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[5][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[6][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[6][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[7][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[7][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[8][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[8][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[9][1], I2C_TLC59116:tlc59116_0|D_LEDMODES[9][0], ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[10][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[11][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[12][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[13][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][1],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[14][0],                                          ;
+;                  ;                           ; I2C_TLC59116:tlc59116_0|D_LEDMODES[15][1]                                           ;
++------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -413,37 +694,53 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 95    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 2     ;
-; Number of registers using Asynchronous Clear ; 84    ;
+; Total registers                              ; 677   ;
+; Number of registers using Synchronous Clear  ; 48    ;
+; Number of registers using Synchronous Load   ; 69    ;
+; Number of registers using Asynchronous Clear ; 324   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 58    ;
+; Number of registers using Clock Enable       ; 447   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------+
-; Inverted Register Statistics                      ;
-+-----------------------------------------+---------+
-; Inverted Register                       ; Fan out ;
-+-----------------------------------------+---------+
-; I2CIF:I2C|INITTING                      ; 16      ;
-; I2CIF:I2C|TXBIT                         ; 2       ;
-; SDAIN                                   ; 6       ;
-; SCLIN                                   ; 7       ;
-; I2CIF:I2C|INITCOUNT[3]                  ; 2       ;
-; I2CIF:I2C|INITCOUNT[1]                  ; 4       ;
-; I2C_TLC59116:tlc59116_0|WRn             ; 7       ;
-; I2CIF:I2C|LASTSDA                       ; 1       ;
-; SFTCLK:i2cclk|counter[5]                ; 2       ;
-; SFTCLK:i2cclk|counter[4]                ; 2       ;
-; SFTCLK:i2cclk|counter[3]                ; 2       ;
-; SFTCLK:i2cclk|counter[1]                ; 3       ;
-; SFTCLK:i2cclk|counter[0]                ; 4       ;
-; I2CIF:I2C|TXEMPbuf                      ; 2       ;
-; Total number of inverted registers = 14 ;         ;
-+-----------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; I2C_TLC59116:tlc59116_1|WRn                                                                                                                                                                                                                                                                                                     ; 5       ;
+; I2C_TLC59116:tlc59116_0|WRn                                                                                                                                                                                                                                                                                                     ; 6       ;
+; I2CIF:I2C|TXEMPbuf                                                                                                                                                                                                                                                                                                              ; 3       ;
+; SCLIN                                                                                                                                                                                                                                                                                                                           ; 6       ;
+; I2CIF:I2C|TXBIT                                                                                                                                                                                                                                                                                                                 ; 2       ;
+; SDAIN                                                                                                                                                                                                                                                                                                                           ; 5       ;
+; I2CIF:I2C|INITTING                                                                                                                                                                                                                                                                                                              ; 18      ;
+; I2CIF:I2C|INITCOUNT[3]                                                                                                                                                                                                                                                                                                          ; 2       ;
+; I2CIF:I2C|INITCOUNT[1]                                                                                                                                                                                                                                                                                                          ; 4       ;
+; SFTCLK:i2cclk|counter[5]                                                                                                                                                                                                                                                                                                        ; 2       ;
+; SFTCLK:i2cclk|counter[4]                                                                                                                                                                                                                                                                                                        ; 2       ;
+; SFTCLK:i2cclk|counter[3]                                                                                                                                                                                                                                                                                                        ; 2       ;
+; SFTCLK:i2cclk|counter[1]                                                                                                                                                                                                                                                                                                        ; 3       ;
+; SFTCLK:i2cclk|counter[0]                                                                                                                                                                                                                                                                                                        ; 4       ;
+; I2CIF:I2C|LASTSDA                                                                                                                                                                                                                                                                                                               ; 1       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[1]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[2]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[3]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[4]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[5]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[6]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[7]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[8]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[9]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[10]                                                                                                                                                  ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[11]                                                                                                                                                  ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[12]                                                                                                                                                  ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[0]                                                                                                                                                   ; 1       ;
+; Total number of inverted registers = 30                                                                                                                                                                                                                                                                                         ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -451,14 +748,24 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[3]                               ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[5]                               ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[0]                               ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|CLKST[1]                               ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBIT                                  ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|SDAOUT                                 ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2CIF:I2C|STATE                                  ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|Selector2 ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector4                         ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector3                         ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|Selector2 ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|Selector2 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Source assignments for sld_signaltap:auto_signaltap_0 ;
++-----------------+-------+------+----------------------+
+; Assignment      ; Value ; From ; To                   ;
++-----------------+-------+------+----------------------+
+; MESSAGE_DISABLE ; 13410 ; -    ; -                    ;
++-----------------+-------+------+----------------------+
 
 
 +----------------------------------------------------------------------------+
@@ -476,7 +783,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------+
 ; Parameter Name ; Value ; Type                               ;
 +----------------+-------+------------------------------------+
-; num_drivers    ; 1     ; Signed Integer                     ;
+; num_drivers    ; 2     ; Signed Integer                     ;
 +----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -518,6 +825,106 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116_1 ;
++------------------+----------+----------------------------------------+
+; Parameter Name   ; Value    ; Type                                   ;
++------------------+----------+----------------------------------------+
+; LED0_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED1_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED2_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED3_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED4_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED5_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED6_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED7_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED8_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED9_BRIGHTNESS  ; 10000000 ; Unsigned Binary                        ;
+; LED10_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED11_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED12_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED13_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED14_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
+; LED15_BRIGHTNESS ; 10000000 ; Unsigned Binary                        ;
++------------------+----------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0                                 ;
++-------------------------------------------------+----------------------------------------------+----------------+
+; Parameter Name                                  ; Value                                        ; Type           ;
++-------------------------------------------------+----------------------------------------------+----------------+
+; lpm_type                                        ; sld_signaltap                                ; String         ;
+; sld_node_info                                   ; 805334528                                    ; Untyped        ;
+; SLD_SECTION_ID                                  ; hdl_signaltap_0                              ; String         ;
+; SLD_IP_VERSION                                  ; 6                                            ; Signed Integer ;
+; SLD_IP_MINOR_VERSION                            ; 0                                            ; Signed Integer ;
+; SLD_COMMON_IP_VERSION                           ; 0                                            ; Signed Integer ;
+; sld_data_bits                                   ; 6                                            ; Untyped        ;
+; sld_trigger_bits                                ; 6                                            ; Untyped        ;
+; SLD_NODE_CRC_BITS                               ; 32                                           ; Signed Integer ;
+; SLD_NODE_CRC_HIWORD                             ; 41394                                        ; Signed Integer ;
+; SLD_NODE_CRC_LOWORD                             ; 50132                                        ; Signed Integer ;
+; sld_incremental_routing                         ; 1                                            ; Untyped        ;
+; sld_sample_depth                                ; 4096                                         ; Untyped        ;
+; sld_segment_size                                ; 4096                                         ; Untyped        ;
+; sld_ram_block_type                              ; AUTO                                         ; Untyped        ;
+; sld_state_bits                                  ; 11                                           ; Untyped        ;
+; sld_buffer_full_stop                            ; 1                                            ; Untyped        ;
+; SLD_MEM_ADDRESS_BITS                            ; 7                                            ; Signed Integer ;
+; SLD_DATA_BIT_CNTR_BITS                          ; 4                                            ; Signed Integer ;
+; sld_trigger_level                               ; 1                                            ; Untyped        ;
+; sld_trigger_in_enabled                          ; 0                                            ; Untyped        ;
+; SLD_HPS_TRIGGER_IN_ENABLED                      ; 0                                            ; Signed Integer ;
+; SLD_HPS_TRIGGER_OUT_ENABLED                     ; 0                                            ; Signed Integer ;
+; SLD_HPS_EVENT_ENABLED                           ; 0                                            ; Signed Integer ;
+; SLD_HPS_EVENT_ID                                ; 0                                            ; Signed Integer ;
+; sld_advanced_trigger_entity                     ; basic,1,                                     ; Untyped        ;
+; sld_trigger_level_pipeline                      ; 1                                            ; Untyped        ;
+; sld_trigger_pipeline                            ; 0                                            ; Untyped        ;
+; sld_ram_pipeline                                ; 0                                            ; Untyped        ;
+; sld_counter_pipeline                            ; 0                                            ; Untyped        ;
+; sld_enable_advanced_trigger                     ; 0                                            ; Untyped        ;
+; SLD_ADVANCED_TRIGGER_1                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_2                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_3                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_4                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_5                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_6                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_7                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_8                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_9                          ; NONE                                         ; String         ;
+; SLD_ADVANCED_TRIGGER_10                         ; NONE                                         ; String         ;
+; sld_inversion_mask_length                       ; 44                                           ; Untyped        ;
+; sld_inversion_mask                              ; 00000000000000000000000000000000000000000000 ; Untyped        ;
+; sld_power_up_trigger                            ; 0                                            ; Untyped        ;
+; SLD_STATE_FLOW_MGR_ENTITY                       ; state_flow_mgr_entity.vhd                    ; String         ;
+; sld_state_flow_use_generated                    ; 0                                            ; Untyped        ;
+; sld_current_resource_width                      ; 1                                            ; Untyped        ;
+; sld_attribute_mem_mode                          ; OFF                                          ; Untyped        ;
+; sld_storage_qualifier_bits                      ; 6                                            ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_GAP_RECORD                ; 0                                            ; Signed Integer ;
+; SLD_STORAGE_QUALIFIER_MODE                      ; OFF                                          ; String         ;
+; SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION ; 0                                            ; Signed Integer ;
+; sld_storage_qualifier_inversion_mask_length     ; 0                                            ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY ; basic                                        ; String         ;
+; SLD_STORAGE_QUALIFIER_PIPELINE                  ; 0                                            ; Signed Integer ;
+; SLD_CREATE_MONITOR_INTERFACE                    ; 0                                            ; Signed Integer ;
+; SLD_USE_JTAG_SIGNAL_ADAPTER                     ; 1                                            ; Signed Integer ;
++-------------------------------------------------+----------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_TLC59116:tlc59116_1"                                                            ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; rdn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "I2C_TLC59116:tlc59116_0"                                                            ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -536,29 +943,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-----------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Tap Logic Analyzer Settings                                                                                                                                                                                                                                      ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; Instance Index ; Instance Name    ; Trigger Input Width ; Data Input Width ; Sample Depth ; Segments ; Storage Qualifier Type ; Trigger Flow Control ; Trigger Conditions ; Advanced Trigger Conditions ; Trigger In Used ; Trigger Out Used ; Power-Up Trigger Enabled ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; 0              ; auto_signaltap_0 ; 6                   ; 6                ; 4096         ; 1        ; continuous             ; sequential           ; 1                  ; 0                           ; no              ; no               ; no                       ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 95                          ;
-;     CLR               ; 37                          ;
-;     ENA               ; 11                          ;
-;     ENA CLR           ; 45                          ;
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 148                         ;
+;     CLR               ; 50                          ;
+;     ENA               ; 20                          ;
+;     ENA CLR           ; 74                          ;
 ;     ENA CLR SLD       ; 2                           ;
+;     plain             ; 2                           ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 195                         ;
+; cycloneiii_lcell_comb ; 283                         ;
 ;     arith             ; 5                           ;
 ;         2 data inputs ; 5                           ;
-;     normal            ; 190                         ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 36                          ;
-;         4 data inputs ; 121                         ;
+;     normal            ; 278                         ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 191                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.77                        ;
+; Average LUT depth     ; 3.98                        ;
 +-----------------------+-----------------------------+
 
 
@@ -567,8 +984,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                                              ;
++-----------------------------+---------------+-----------+--------------------------------+-------------------+----------------------------------------------------+---------+
+; Name                        ; Type          ; Status    ; Partition Name                 ; Netlist Type Used ; Actual Connection                                  ; Details ;
++-----------------------------+---------------+-----------+--------------------------------+-------------------+----------------------------------------------------+---------+
+; I2C_MUX:I2CMUX|START        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|START~1                             ; N/A     ;
+; I2C_MUX:I2CMUX|START        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|START~1                             ; N/A     ;
+; I2C_MUX:I2CMUX|START_PXY[0] ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_TLC59116:tlc59116_0|START                      ; N/A     ;
+; I2C_MUX:I2CMUX|START_PXY[0] ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_TLC59116:tlc59116_0|START                      ; N/A     ;
+; I2C_MUX:I2CMUX|TXEMP        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2CIF:I2C|TXEMP                                    ; N/A     ;
+; I2C_MUX:I2CMUX|TXEMP        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2CIF:I2C|TXEMP                                    ; N/A     ;
+; I2C_MUX:I2CMUX|TXEMP_PXY[0] ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|TXEMP_PXY~2 ; N/A     ;
+; I2C_MUX:I2CMUX|TXEMP_PXY[0] ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|TXEMP_PXY~2 ; N/A     ;
+; I2C_MUX:I2CMUX|WRn          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|WRn~3                               ; N/A     ;
+; I2C_MUX:I2CMUX|WRn          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_MUX:I2CMUX|WRn~3                               ; N/A     ;
+; I2C_MUX:I2CMUX|WRn_PXY[0]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_TLC59116:tlc59116_0|WRn~_wirecell              ; N/A     ;
+; I2C_MUX:I2CMUX|WRn_PXY[0]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; I2C_TLC59116:tlc59116_0|WRn~_wirecell              ; N/A     ;
+; pClk                        ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; pClk                                               ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|gnd        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
+; auto_signaltap_0|vcc        ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                ; N/A     ;
++-----------------------------+---------------+-----------+--------------------------------+-------------------+----------------------------------------------------+---------+
 
 
 +-------------------------------+
@@ -577,7 +1047,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Nov 14 22:28:46 2020
+    Info: Processing started: Sun Nov 15 12:27:10 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TLC59116-Driver -c TLC59116-Driver
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -607,17 +1077,60 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 0 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_pkg.vhd
     Info (12022): Found design unit 1: I2C_pkg File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd Line: 5
 Info (12127): Elaborating entity "I2C_SAMPLE" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at sample.vhd(32): object "ledmodes1" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 32
-Warning (10036): Verilog HDL or VHDL warning at sample.vhd(60): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 60
-Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 191
-Info (12128): Elaborating entity "I2C_MUX" for hierarchy "I2C_MUX:I2CMUX" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 219
-Warning (10541): VHDL Signal Declaration warning at I2C_MUX.vhd(42): used implicit default value for signal "DATOUT_PXY" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 42
+Warning (10036): Verilog HDL or VHDL warning at sample.vhd(61): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 61
+Info (12128): Elaborating entity "I2CIF" for hierarchy "I2CIF:I2C" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 192
+Info (12128): Elaborating entity "I2C_MUX" for hierarchy "I2C_MUX:I2CMUX" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 220
 Info (12128): Elaborating entity "I2C_MUX_PROXY" for hierarchy "I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_MUX.vhd Line: 100
-Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 275
-Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116_0" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 288
-Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 36
+Info (12128): Elaborating entity "SFTCLK" for hierarchy "SFTCLK:i2cclk" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 276
+Info (12128): Elaborating entity "I2C_TLC59116" for hierarchy "I2C_TLC59116:tlc59116_0" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 289
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_0j14.tdf
+    Info (12023): Found entity 1: altsyncram_0j14 File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/altsyncram_0j14.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_j7c.tdf
+    Info (12023): Found entity 1: mux_j7c File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/mux_j7c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_3af.tdf
+    Info (12023): Found entity 1: decode_3af File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/decode_3af.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_jph.tdf
+    Info (12023): Found entity 1: cntr_jph File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_jph.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_frb.tdf
+    Info (12023): Found entity 1: cmpr_frb File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_frb.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_cki.tdf
+    Info (12023): Found entity 1: cntr_cki File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_cki.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_6rh.tdf
+    Info (12023): Found entity 1: cntr_6rh File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_6rh.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_hrb.tdf
+    Info (12023): Found entity 1: cmpr_hrb File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_hrb.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_odi.tdf
+    Info (12023): Found entity 1: cntr_odi File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cntr_odi.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_drb.tdf
+    Info (12023): Found entity 1: cmpr_drb File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/cmpr_drb.tdf Line: 22
+Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2020.11.15.12:27:47 Progress: Loading sld06b3d628/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld06b3d628/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/db/ip/sld06b3d628/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Info (13000): Registers with preset signals will power-up high File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd Line: 56
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Info (286030): Timing-Driven Synthesis is running
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
     Critical Warning (18010): Register I2CIF:I2C|INITCOUNT[3] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd Line: 67
     Critical Warning (18010): Register I2CIF:I2C|INITCOUNT[1] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2CIF.vhd Line: 67
@@ -626,20 +1139,19 @@ Critical Warning (18061): Ignored Power-Up Level option on the following registe
     Critical Warning (18010): Register SFTCLK:i2cclk|counter[3] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd Line: 27
     Critical Warning (18010): Register SFTCLK:i2cclk|counter[1] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd Line: 27
     Critical Warning (18010): Register SFTCLK:i2cclk|counter[0] will power up to High File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sftclk.vhd Line: 27
+Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 45 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "pPsw[2]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
-    Warning (15610): No output dependent on input pin "pPsw[3]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
-Info (21057): Implemented 234 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 0 output pins
+Info (21057): Implemented 1105 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 1 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 226 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Sat Nov 14 22:29:15 2020
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:49
+    Info (21061): Implemented 1086 logic cells
+    Info (21064): Implemented 6 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4852 megabytes
+    Info: Processing ended: Sun Nov 15 12:28:10 2020
+    Info: Elapsed time: 00:01:00
+    Info: Total CPU time (on all processors): 00:01:39
 
 

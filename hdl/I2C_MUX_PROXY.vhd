@@ -28,10 +28,10 @@ port(
 	RESTART_PXY :in     std_logic;						--make re-start condition
 	START_PXY   :in     std_logic;						--make start condition
 	FINISH_PXY  :in     std_logic;						--next data is final(make stop condition)
-	F_FINISH_PXY :in     std_logic;						--next data is final(make stop condition)
+	F_FINISH_PXY:in     std_logic;						--next data is final(make stop condition)
 	
-	clk			:in std_logic;
-	rstn		:in std_logic
+	clk			:in     std_logic;
+	rstn		:in     std_logic
 );
 end I2C_MUX_PROXY;
 
@@ -39,13 +39,15 @@ architecture rtl of I2C_MUX_PROXY is
 type I2CMUXPROXYstate_t is(
     IS_IDLE,
     IS_REQ,
-    IS_BUSY
+    IS_BUSY,
+    IS_FIN
 );
 signal	state	:I2CMUXPROXYstate_t;
 
 begin
 
-    TXEMP_PXY <='1' when state=IS_IDLE else
+    TXEMP_PXY <='0' when WRn_PXY='0' else 
+                '1' when state=IS_IDLE else
                 '0' when state=IS_REQ else
                 TXEMP;
 
@@ -70,10 +72,13 @@ begin
                 end if;
             when IS_BUSY =>
                 if(WRn_PXY='0' and FINISH_PXY='1')then
+                    state<=IS_FIN;
+                end if;
+            when IS_FIN =>
+                if(TXEMP='1')then
                     state<=IS_IDLE;
                     BUSACK<='0';
                 end if;
-                
             end case;
         end if;
     end process;

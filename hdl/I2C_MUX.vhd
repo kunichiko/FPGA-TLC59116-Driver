@@ -21,8 +21,8 @@ generic(
 );
 port(
 	-- I2C
-	TXOUT		:out	std_logic_vector(7 downto 0);	--tx data in
-	RXIN		:in		std_logic_vector(7 downto 0);	--rx data out
+	TXOUT		:out	std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--tx data in
+	RXIN		:in		std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--rx data out
 	WRn			:out	std_logic;						--write
 	RDn			:out	std_logic;						--read
 
@@ -87,10 +87,10 @@ component I2C_MUX_PROXY is
 		RESTART_PXY :in     std_logic;						--make re-start condition
 		START_PXY   :in     std_logic;						--make start condition
 		FINISH_PXY  :in     std_logic;						--next data is final(make stop condition)
-		F_FINISH_PXY :in     std_logic;						--next data is final(make stop condition)
+		F_FINISH_PXY:in    std_logic;						--next data is final(make stop condition)
 		
-		clk			:in std_logic;
-		rstn		:in std_logic
+		clk			:in 	std_logic;
+		rstn		:in 	std_logic
 	);
 end component;
 
@@ -98,36 +98,40 @@ begin
 
 	GEN1: for I in 0 to NUM_DRIVERS-1 generate
 		U: I2C_MUX_PROXY port map(
-			BUSREQ =>	BUSREQ(I),
-			BUSGNT =>	BUSGNT(I),
-			BUSACK =>	BUSACK(I),
-			TXEMP =>	TXEMP,
-			TXEMP_PXY =>	TXEMP_PXY(I),
-			WRn_PXY =>		WRn_PXY(I),
-			RESTART_PXY =>	RESTART_PXY(I),
-			START_PXY =>	START_PXY(I),
-			FINISH_PXY =>	FINISH_PXY(I),
-			F_FINISH_PXY =>	F_FINISH_PXY(I),
-			clk => 			clk,
-			rstn =>			rstn
+			BUSREQ 		=> BUSREQ(I),
+			BUSGNT 		=> BUSGNT(I),
+			BUSACK 		=> BUSACK(I),
+			TXEMP		=> TXEMP,
+			TXEMP_PXY	=> TXEMP_PXY(I),
+			WRn_PXY		=> WRn_PXY(I),
+			RESTART_PXY	=> RESTART_PXY(I),
+			START_PXY	=> START_PXY(I),
+			FINISH_PXY	=> FINISH_PXY(I),
+			F_FINISH_PXY=> F_FINISH_PXY(I),
+			clk			=> clk,
+			rstn		=> rstn
 		);
+
+		DATOUT_PXY(I) <= RXIN;
 	end generate;
 
-    WRn     <=  '0' when I2CMUXstate = IS_START else WRn_PXY(SEL);
-    START   <=  '1' when I2CMUXstate = IS_START else '0';
+	WRn     <=  '1' when I2CMUXstate = IS_IDLE else 
+				'0' when I2CMUXstate = IS_START else WRn_PXY(SEL);
+	START   <=  '0' when I2CMUXstate = IS_IDLE else 
+				'1' when I2CMUXstate = IS_START else START_PXY(SEL);
 
-	TXOUT   <=  DATIN_PXY(SEL);
-    RDn     <=  RDn_PXY(SEL);
-    NX_READ <=  NX_READ_PXY(SEL);
-    RESTART <=  RESTART_PXY(SEL);
-    FINISH  <=  FINISH_PXY(SEL);
-    F_FINISH <= F_FINISH_PXY(SEL);
-    INIT    <=  INIT_PXY(SEL);
+	TXOUT   <=  DATIN_PXY(SEL)		when I2CMUXstate /=IS_IDLE else (others=>'0');
+    RDn     <=  RDn_PXY(SEL) 		when I2CMUXstate = IS_BUSY else '1';
+    NX_READ <=  NX_READ_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
+    RESTART <=  RESTART_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
+    FINISH  <=  FINISH_PXY(SEL)		when I2CMUXstate = IS_BUSY else '0';
+    F_FINISH <= F_FINISH_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
+    INIT    <=  INIT_PXY(SEL)		when I2CMUXstate = IS_BUSY else '0';
 
 	GEN2: for I in 0 to NUM_DRIVERS-1 generate
-		RXED_PXY(I) <= RXED when SEL = I else '0';
-	    NOACK_PXY(I) <= NOACK when SEL = I else '0';
-		COLL_PXY(I) <= COLL when SEL = I else '0';
+		RXED_PXY(I) <= RXED			when I2CMUXstate = IS_BUSY and SEL = I else '0';
+	    NOACK_PXY(I) <= NOACK		when I2CMUXstate = IS_BUSY and SEL = I else '0';
+		COLL_PXY(I) <= COLL			when I2CMUXstate = IS_BUSY and SEL = I else '0';
 	end generate;
 
 	process(clk,rstn)
@@ -139,17 +143,17 @@ begin
 			when IS_IDLE =>
 				BUSGNT<=(others => '0');
 				for I in 0 to NUM_DRIVERS-1 loop
-					if(BUSREQ(I)='1')then
+					if(BUSREQ(I)='1' and TXEMP='1')then
 						I2CMUXstate<=IS_START;
-						BUSGNT(I)<='1';
 						SEL<=I;
 						exit;
 					end if;
 				end loop;
 			when IS_START =>
 				I2CMUXstate<=IS_GRANT;
+				BUSGNT(SEL)<='1';			-- STARTの代理発行が終わったら本来のドライバにバス操作権限を委譲
 			when IS_GRANT =>
-				if(BUSACK(SEL)='1')then
+				if(BUSACK(SEL)='1')then		-- ACKが来るまで待つ(このステートはなくてもいいかもしれないが念のため）	
 					I2CMUXstate<=IS_BUSY;
 					BUSGNT<=(others => '0');
 				end if;

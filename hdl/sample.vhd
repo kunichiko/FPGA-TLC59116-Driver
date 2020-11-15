@@ -25,56 +25,57 @@ end I2C_SAMPLE;
 
 architecture rtl of I2C_SAMPLE is
 
+-- Define the number of I2C device drivers  
+constant NUM_DRIVERS: integer := 2;
+
+-- global signals
 signal	sysclk	:std_logic;
 signal	srstn	:std_logic;
 
-signal ledmodes0 :led_mode_array(0 to 15);
-signal ledmodes1 :led_mode_array(0 to 15);
+signal  ledmodes0 :led_mode_array(0 to 15);
+signal  ledmodes1 :led_mode_array(0 to 15);
 
 --for I2C I/F
-signal	SDAIN,SDAOUT	:std_logic;
-signal	SCLIN,SCLOUT	:std_logic;
-signal	I2CCLKEN	:std_logic;
+signal	SDAIN,SDAOUT    :std_logic;
+signal	SCLIN,SCLOUT    :std_logic;
+signal	I2CCLKEN	    :std_logic;
 
-signal	I2C_TXDAT	:std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--tx data in
-signal	I2C_RXDAT	:std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--rx data out
-signal	I2C_WRn		:std_logic;			    			--write
-signal	I2C_RDn		:std_logic;				    		--read
-signal	I2C_TXEMP	:std_logic;							--tx buffer empty
-signal	I2C_RXED	:std_logic;							--rx buffered
-signal	I2C_NOACK	:std_logic;							--no ack
-signal	I2C_COLL	:std_logic;							--collision detect
-signal	I2C_NX_READ	:std_logic;							--next data is read
-signal	I2C_RESTART	:std_logic;							--make re-start condition
-signal	I2C_START	:std_logic;							--make start condition
-signal	I2C_FINISH	:std_logic;							--next data is final(make stop condition)
-signal	I2C_F_FINISH :std_logic;						--next data is final(make stop condition)
-signal	I2C_INIT	:std_logic;
+signal	I2C_TXDAT	    :std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--tx data in
+signal	I2C_RXDAT	    :std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--rx data out
+signal	I2C_WRn		    :std_logic;			    			        --write
+signal	I2C_RDn		    :std_logic;				    		        --read
+signal	I2C_TXEMP	    :std_logic;							        --tx buffer empty
+signal	I2C_RXED	    :std_logic;							        --rx buffered
+signal	I2C_NOACK	    :std_logic;							        --no ack
+signal	I2C_COLL	    :std_logic;							        --collision detect
+signal	I2C_NX_READ	    :std_logic;							        --next data is read
+signal	I2C_RESTART	    :std_logic;							        --make re-start condition
+signal	I2C_START	    :std_logic;							        --make start condition
+signal	I2C_FINISH	    :std_logic;							        --next data is final(make stop condition)
+signal	I2C_F_FINISH    :std_logic;				    		        --next data is final(make stop condition)
+signal	I2C_INIT	    :std_logic;
 
-
-constant NUM_DRIVERS: integer := 1;
-
-signal	I2C_TXDAT_PXY	:i2cdat_array(NUM_DRIVERS-1 downto 0);		--tx data in
-signal	I2C_RXDAT_PXY	:i2cdat_array(NUM_DRIVERS-1 downto 0);	--rx data out
-signal	I2C_WRn_PXY		:std_logic_vector(NUM_DRIVERS-1 downto 0);						--write
-signal	I2C_RDn_PXY		:std_logic_vector(NUM_DRIVERS-1 downto 0);						--read
-signal	I2C_TXEMP_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--tx buffer empty
-signal	I2C_RXED_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--rx buffered
-signal	I2C_NOACK_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--no ack
-signal	I2C_COLL_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--collision detect
-signal	I2C_NX_READ_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--next data is read
-signal	I2C_RESTART_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--make re-start condition
-signal	I2C_START_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--make start condition
-signal	I2C_FINISH_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);							--next data is final(make stop condition)
-signal	I2C_F_FINISH_PXY :std_logic_vector(NUM_DRIVERS-1 downto 0);							--next data is final(make stop condition)
+signal	I2C_TXDAT_PXY	:i2cdat_array(NUM_DRIVERS-1 downto 0);	    --tx data in
+signal	I2C_RXDAT_PXY	:i2cdat_array(NUM_DRIVERS-1 downto 0);	    --rx data out
+signal	I2C_WRn_PXY		:std_logic_vector(NUM_DRIVERS-1 downto 0);	--write
+signal	I2C_RDn_PXY		:std_logic_vector(NUM_DRIVERS-1 downto 0);	--read
+signal	I2C_TXEMP_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--tx buffer empty
+signal	I2C_RXED_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--rx buffered
+signal	I2C_NOACK_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--no ack
+signal	I2C_COLL_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);  --collision detect
+signal	I2C_NX_READ_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is read
+signal	I2C_RESTART_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--make re-start condition
+signal	I2C_START_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--make start condition
+signal	I2C_FINISH_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
+signal	I2C_F_FINISH_PXY:std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
 signal	I2C_INIT_PXY	:std_logic_vector(NUM_DRIVERS-1 downto 0);
 
 component I2CIF
 port(
 	DATIN	:in	    std_logic_vector(I2CDAT_WIDTH-1 downto 0);		--tx data in
-	DATOUT	:out    std_logic_vector(I2CDAT_WIDTH-1 downto 0);	--rx data out
-	WRn		:in     std_logic;						--write
-	RDn		:in     std_logic;						--read
+	DATOUT	:out    std_logic_vector(I2CDAT_WIDTH-1 downto 0);	    --rx data out
+	WRn		:in     std_logic;						    --write
+	RDn		:in     std_logic;						    --read
 
 	TXEMP	:out    std_logic;							--tx buffer empty
 	RXED	:out    std_logic;							--rx buffered
@@ -84,7 +85,7 @@ port(
 	RESTART	:in     std_logic;							--make re-start condition
 	START	:in     std_logic;							--make start condition
 	FINISH	:in     std_logic;							--next data is final(make stop condition)
-	F_FINISH :in    std_logic;							--next data is final(make stop condition)
+	F_FINISH:in     std_logic;							--next data is final(make stop condition)
 	INIT	:in     std_logic;
 	
 --	INTn :out	std_logic;
@@ -119,7 +120,7 @@ port(
     RESTART		:out	std_logic;						--make re-start condition
     START		:out	std_logic;						--make start condition
     FINISH		:out	std_logic;						--next data is final(make stop condition)
-    F_FINISH	 :out	std_logic;						--next data is final(make stop condition by force)
+    F_FINISH	:out	std_logic;						--next data is final(make stop condition by force)
     INIT		:out	std_logic;
     
     -- for Driver
@@ -136,11 +137,11 @@ port(
     RESTART_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--make re-start condition
     START_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--make start condition
     FINISH_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
-    F_FINISH_PXY :in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
+    F_FINISH_PXY:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
     INIT_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);
     
-    clk			:in std_logic;
-    rstn		:in std_logic
+    clk			:in     std_logic;
+    rstn		:in     std_logic
 );
 end component;
 
@@ -310,30 +311,30 @@ tlc59116_0 :I2C_TLC59116 port map(
     rstn	=>srstn
 );
 
--- tlc59116_1 :I2C_TLC59116 port map(
---     -- I2C I/F
---     TXOUT	=>I2C_TXDAT_PXY(1),
---     RXIN	=>I2C_RXDAT_PXY(1),
---     WRn		=>I2C_WRn_PXY(1),
---     RDn		=>I2C_RDn_PXY(1),
+tlc59116_1 :I2C_TLC59116 port map(
+    -- I2C I/F
+    TXOUT	=>I2C_TXDAT_PXY(1),
+    RXIN	=>I2C_RXDAT_PXY(1),
+    WRn		=>I2C_WRn_PXY(1),
+    RDn		=>I2C_RDn_PXY(1),
 
---     TXEMP	=>I2C_TXEMP_PXY(1),
---     RXED	=>I2C_RXED_PXY(1),
---     NOACK	=>I2C_NOACK_PXY(1),
---     COLL	=>I2C_COLL_PXY(1),
---     NX_READ	=>I2C_NX_READ_PXY(1),
---     RESTART	=>I2C_RESTART_PXY(1),
---     START	=>I2C_START_PXY(1),
---     FINISH	=>I2C_FINISH_PXY(1),
---     F_FINISH=>I2C_F_FINISH_PXY(1),
---     INIT	=>I2C_INIT_PXY(1),
+    TXEMP	=>I2C_TXEMP_PXY(1),
+    RXED	=>I2C_RXED_PXY(1),
+    NOACK	=>I2C_NOACK_PXY(1),
+    COLL	=>I2C_COLL_PXY(1),
+    NX_READ	=>I2C_NX_READ_PXY(1),
+    RESTART	=>I2C_RESTART_PXY(1),
+    START	=>I2C_START_PXY(1),
+    FINISH	=>I2C_FINISH_PXY(1),
+    F_FINISH=>I2C_F_FINISH_PXY(1),
+    INIT	=>I2C_INIT_PXY(1),
 
---     -- LED Control Ports
---     LEDMODES => ledmodes1,
+    -- LED Control Ports
+    LEDMODES => ledmodes1,
 
---     clk		=>sysclk,
---     rstn	=>srstn
--- );
+    clk		=>sysclk,
+    rstn	=>srstn
+);
 
 process(sysclk,srstn)begin
     if(srstn='0')then
