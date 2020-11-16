@@ -1,5 +1,5 @@
 Fitter report for TLC59116-Driver
-Mon Nov 16 00:30:31 2020
+Mon Nov 16 23:15:37 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -67,17 +67,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Nov 16 00:30:31 2020       ;
+; Fitter Status                      ; Successful - Mon Nov 16 23:15:37 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TLC59116-Driver                             ;
 ; Top-level Entity Name              ; I2C_SAMPLE                                  ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M08SAE144C8G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 312 / 8,064 ( 4 % )                         ;
-;     Total combinational functions  ; 292 / 8,064 ( 4 % )                         ;
-;     Dedicated logic registers      ; 134 / 8,064 ( 2 % )                         ;
-; Total registers                    ; 134                                         ;
+; Total logic elements               ; 317 / 8,064 ( 4 % )                         ;
+;     Total combinational functions  ; 289 / 8,064 ( 4 % )                         ;
+;     Dedicated logic registers      ; 135 / 8,064 ( 2 % )                         ;
+; Total registers                    ; 135                                         ;
 ; Total pins                         ; 8 / 101 ( 8 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 387,072 ( 0 % )                         ;
@@ -153,13 +153,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.10        ;
+; Average used               ; 1.13        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.5%      ;
-;     Processors 3-4         ;   3.4%      ;
+;     Processor 2            ;   4.4%      ;
+;     Processor 3            ;   4.3%      ;
+;     Processor 4            ;   4.3%      ;
 +----------------------------+-------------+
 
 
@@ -169,8 +170,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 461 ) ; 0.00 % ( 0 / 461 )         ; 0.00 % ( 0 / 461 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 461 ) ; 0.00 % ( 0 / 461 )         ; 0.00 % ( 0 / 461 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 459 ) ; 0.00 % ( 0 / 459 )         ; 0.00 % ( 0 / 459 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 459 ) ; 0.00 % ( 0 / 459 )         ; 0.00 % ( 0 / 459 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -193,7 +194,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 445 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 443 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -209,26 +210,26 @@ The pin-out file can be found in C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus
 +---------------------------------------------+---------------------+
 ; Resource                                    ; Usage               ;
 +---------------------------------------------+---------------------+
-; Total logic elements                        ; 312 / 8,064 ( 4 % ) ;
-;     -- Combinational with no register       ; 178                 ;
-;     -- Register only                        ; 20                  ;
-;     -- Combinational with a register        ; 114                 ;
+; Total logic elements                        ; 317 / 8,064 ( 4 % ) ;
+;     -- Combinational with no register       ; 182                 ;
+;     -- Register only                        ; 28                  ;
+;     -- Combinational with a register        ; 107                 ;
 ;                                             ;                     ;
 ; Logic element usage by number of LUT inputs ;                     ;
 ;     -- 4 input functions                    ; 195                 ;
 ;     -- 3 input functions                    ; 44                  ;
-;     -- <=2 input functions                  ; 53                  ;
-;     -- Register only                        ; 20                  ;
+;     -- <=2 input functions                  ; 50                  ;
+;     -- Register only                        ; 28                  ;
 ;                                             ;                     ;
 ; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 287                 ;
+;     -- normal mode                          ; 284                 ;
 ;     -- arithmetic mode                      ; 5                   ;
 ;                                             ;                     ;
-; Total registers*                            ; 134 / 8,542 ( 2 % ) ;
-;     -- Dedicated logic registers            ; 134 / 8,064 ( 2 % ) ;
+; Total registers*                            ; 135 / 8,542 ( 2 % ) ;
+;     -- Dedicated logic registers            ; 135 / 8,064 ( 2 % ) ;
 ;     -- I/O registers                        ; 0 / 478 ( 0 % )     ;
 ;                                             ;                     ;
-; Total LABs:  partially or completely used   ; 28 / 504 ( 6 % )    ;
+; Total LABs:  partially or completely used   ; 25 / 504 ( 5 % )    ;
 ; Virtual pins                                ; 0                   ;
 ; I/O pins                                    ; 8 / 101 ( 8 % )     ;
 ;     -- Clock pins                           ; 1 / 4 ( 25 % )      ;
@@ -247,12 +248,12 @@ The pin-out file can be found in C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus
 ; CRC blocks                                  ; 0 / 1 ( 0 % )       ;
 ; Remote update blocks                        ; 0 / 1 ( 0 % )       ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )       ;
-; Average interconnect usage (total/H/V)      ; 0.7% / 0.6% / 0.7%  ;
-; Peak interconnect usage (total/H/V)         ; 3.3% / 3.3% / 3.4%  ;
-; Maximum fan-out                             ; 134                 ;
-; Highest non-global fan-out                  ; 130                 ;
-; Total fan-out                               ; 1496                ;
-; Average fan-out                             ; 3.14                ;
+; Average interconnect usage (total/H/V)      ; 0.7% / 0.6% / 0.8%  ;
+; Peak interconnect usage (total/H/V)         ; 3.7% / 3.3% / 4.1%  ;
+; Maximum fan-out                             ; 135                 ;
+; Highest non-global fan-out                  ; 131                 ;
+; Total fan-out                               ; 1501                ;
+; Average fan-out                             ; 3.11                ;
 +---------------------------------------------+---------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -265,26 +266,26 @@ The pin-out file can be found in C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus
 +---------------------------------------------+--------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                ; Low                            ;
 ;                                             ;                    ;                                ;
-; Total logic elements                        ; 312 / 8064 ( 4 % ) ; 0 / 8064 ( 0 % )               ;
-;     -- Combinational with no register       ; 178                ; 0                              ;
-;     -- Register only                        ; 20                 ; 0                              ;
-;     -- Combinational with a register        ; 114                ; 0                              ;
+; Total logic elements                        ; 317 / 8064 ( 4 % ) ; 0 / 8064 ( 0 % )               ;
+;     -- Combinational with no register       ; 182                ; 0                              ;
+;     -- Register only                        ; 28                 ; 0                              ;
+;     -- Combinational with a register        ; 107                ; 0                              ;
 ;                                             ;                    ;                                ;
 ; Logic element usage by number of LUT inputs ;                    ;                                ;
 ;     -- 4 input functions                    ; 195                ; 0                              ;
 ;     -- 3 input functions                    ; 44                 ; 0                              ;
-;     -- <=2 input functions                  ; 53                 ; 0                              ;
-;     -- Register only                        ; 20                 ; 0                              ;
+;     -- <=2 input functions                  ; 50                 ; 0                              ;
+;     -- Register only                        ; 28                 ; 0                              ;
 ;                                             ;                    ;                                ;
 ; Logic elements by mode                      ;                    ;                                ;
-;     -- normal mode                          ; 287                ; 0                              ;
+;     -- normal mode                          ; 284                ; 0                              ;
 ;     -- arithmetic mode                      ; 5                  ; 0                              ;
 ;                                             ;                    ;                                ;
-; Total registers                             ; 134                ; 0                              ;
-;     -- Dedicated logic registers            ; 134 / 8064 ( 2 % ) ; 0 / 8064 ( 0 % )               ;
+; Total registers                             ; 135                ; 0                              ;
+;     -- Dedicated logic registers            ; 135 / 8064 ( 2 % ) ; 0 / 8064 ( 0 % )               ;
 ;     -- I/O registers                        ; 0                  ; 0                              ;
 ;                                             ;                    ;                                ;
-; Total LABs:  partially or completely used   ; 28 / 504 ( 6 % )   ; 0 / 504 ( 0 % )                ;
+; Total LABs:  partially or completely used   ; 25 / 504 ( 5 % )   ; 0 / 504 ( 0 % )                ;
 ;                                             ;                    ;                                ;
 ; Virtual pins                                ; 0                  ; 0                              ;
 ; I/O pins                                    ; 8                  ; 0                              ;
@@ -302,8 +303,8 @@ The pin-out file can be found in C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus
 ;     -- Registered Output Connections        ; 0                  ; 0                              ;
 ;                                             ;                    ;                                ;
 ; Internal Connections                        ;                    ;                                ;
-;     -- Total Connections                    ; 1496               ; 8                              ;
-;     -- Registered Connections               ; 603                ; 0                              ;
+;     -- Total Connections                    ; 1501               ; 8                              ;
+;     -- Registered Connections               ; 600                ; 0                              ;
 ;                                             ;                    ;                                ;
 ; External Connections                        ;                    ;                                ;
 ;     -- Top                                  ; 4                  ; 0                              ;
@@ -335,12 +336,12 @@ The pin-out file can be found in C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus
 +---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name    ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; pClk    ; 27    ; 2        ; 0            ; 7            ; 21           ; 134                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
+; pClk    ; 27    ; 2        ; 0            ; 7            ; 21           ; 135                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; 0         ;
 ; pPsw[0] ; 14    ; 1A       ; 10           ; 19           ; 21           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
 ; pPsw[1] ; 8     ; 1A       ; 10           ; 21           ; 14           ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
 ; pPsw[2] ; 140   ; 8        ; 1            ; 10           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
 ; pPsw[3] ; 124   ; 8        ; 11           ; 25           ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
-; rstn    ; 123   ; 8        ; 13           ; 25           ; 28           ; 130                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
+; rstn    ; 123   ; 8        ; 13           ; 25           ; 28           ; 131                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 2.5 V        ; --                        ; User                 ; 0         ;
 +---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
 
@@ -561,13 +562,13 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node        ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                ; Entity Name               ; Library Name ;
 +-----------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------+---------------------------+--------------+
-; |I2C_SAMPLE                       ; 312 (7)     ; 134 (5)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 8    ; 0            ; 178 (3)      ; 20 (0)            ; 114 (3)          ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
-;    |I2CIF:I2C|                    ; 136 (136)   ; 30 (30)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 104 (104)    ; 0 (0)             ; 32 (32)          ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
-;    |I2C_MUX:I2CMUX|               ; 45 (19)     ; 19 (7)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 26 (12)      ; 0 (0)             ; 19 (7)           ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
+; |I2C_SAMPLE                       ; 317 (8)     ; 135 (5)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 8    ; 0            ; 182 (3)      ; 28 (0)            ; 107 (3)          ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
+;    |I2CIF:I2C|                    ; 134 (134)   ; 30 (30)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 101 (101)    ; 0 (0)             ; 33 (33)          ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
+;    |I2C_MUX:I2CMUX|               ; 43 (17)     ; 19 (7)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (10)      ; 0 (0)             ; 19 (7)           ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:0:U|   ; 13 (13)     ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 6 (6)            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U ; I2C_MUX_PROXY             ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:1:U|   ; 13 (13)     ; 6 (6)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 6 (6)            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U ; I2C_MUX_PROXY             ; work         ;
-;    |I2C_TLC59116:tlc59116|        ; 70 (70)     ; 46 (46)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)      ; 12 (12)           ; 37 (37)          ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116                  ; I2C_TLC59116              ; work         ;
-;    |I2Crtc:rtc|                   ; 39 (39)     ; 22 (22)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 17 (17)      ; 7 (7)             ; 15 (15)          ; 0          ; |I2C_SAMPLE|I2Crtc:rtc                             ; I2Crtc                    ; work         ;
+;    |I2C_TLC59116:tlc59116|        ; 75 (75)     ; 46 (46)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 28 (28)      ; 18 (18)           ; 29 (29)          ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116                  ; I2C_TLC59116              ; work         ;
+;    |I2Crtc:rtc|                   ; 42 (42)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 19 (19)      ; 9 (9)             ; 14 (14)          ; 0          ; |I2C_SAMPLE|I2Crtc:rtc                             ; I2Crtc                    ; work         ;
 ;    |SFTCLK:i2cclk|                ; 14 (14)     ; 7 (7)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 7 (7)            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                          ; SFTCLK                    ; work         ;
 ;    |X68_FRONTPANEL_CONTROLLER:FP| ; 5 (5)       ; 5 (5)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 4 (4)            ; 0          ; |I2C_SAMPLE|X68_FRONTPANEL_CONTROLLER:FP           ; X68_FRONTPANEL_CONTROLLER ; work         ;
 +-----------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------+---------------------------+--------------+
@@ -586,7 +587,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; rstn    ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; pPsw[2] ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; pPsw[1] ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
-; pPsw[0] ; Input    ; (6) 873 ps    ; --            ; --                    ; --  ; --   ;
+; pPsw[0] ; Input    ; --            ; (6) 873 ps    ; --                    ; --  ; --   ;
 +---------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -624,6 +625,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - I2Crtc:rtc|NX_READ                                   ; 1                 ; 6       ;
 ;      - I2C_MUX:I2CMUX|I2CMUXstate.IS_BUSY                   ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|FINISH                                    ; 1                 ; 6       ;
+;      - I2C_MUX:I2CMUX|SEL                                   ; 1                 ; 6       ;
 ;      - I2CIF:I2C|INITCOUNT[3]                               ; 1                 ; 6       ;
 ;      - I2CIF:I2C|INITCOUNT[1]                               ; 1                 ; 6       ;
 ;      - I2CIF:I2C|INITCOUNT[2]                               ; 1                 ; 6       ;
@@ -646,18 +648,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - I2CIF:I2C|TXBUF[7]                                   ; 1                 ; 6       ;
 ;      - I2C_TLC59116:tlc59116|TXOUT[7]                       ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|TXOUT[7]                                  ; 1                 ; 6       ;
-;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRYER                    ; 1                 ; 6       ;
+;      - I2Crtc:rtc|RDn                                       ; 1                 ; 6       ;
 ;      - I2CIF:I2C|TXEMPbuf                                   ; 1                 ; 6       ;
 ;      - I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state.IS_REQ  ; 1                 ; 6       ;
 ;      - I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|state.IS_IDLE ; 1                 ; 6       ;
+;      - I2Crtc:rtc|I2Cstate.IS_INIRTCWADR                    ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIBGN                        ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCSADRW                   ; 1                 ; 6       ;
-;      - I2Crtc:rtc|I2Cstate.IS_INIRTCWADR                    ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_IDLE                          ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRCNT1                   ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRCNT2                   ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRSEC                    ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRMIN                    ; 1                 ; 6       ;
+;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRYER                    ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRHR                     ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRWEK                    ; 1                 ; 6       ;
 ;      - I2Crtc:rtc|I2Cstate.IS_INIRTCRDAY                    ; 1                 ; 6       ;
@@ -667,7 +670,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|BUSACK        ; 1                 ; 6       ;
 ;      - I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|BUSREQ        ; 1                 ; 6       ;
 ;      - I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|BUSREQ        ; 1                 ; 6       ;
-;      - I2C_MUX:I2CMUX|SEL~0                                 ; 1                 ; 6       ;
 ;      - I2C_TLC59116:tlc59116|I2Cstate.IS_IDLE               ; 1                 ; 6       ;
 ;      - I2C_TLC59116:tlc59116|I2Cstate.IS_INI_FIN            ; 1                 ; 6       ;
 ;      - I2C_TLC59116:tlc59116|I2Cstate.IS_UPDATE_FIN         ; 1                 ; 6       ;
@@ -737,7 +739,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; pPsw[1]                                                     ;                   ;         ;
 ;      - LED_FDD0_ACCESS[0]~0                                 ; 1                 ; 6       ;
 ; pPsw[0]                                                     ;                   ;         ;
-;      - LED_HD_BUSY~0                                        ; 0                 ; 6       ;
+;      - LED_HD_BUSY~0                                        ; 1                 ; 6       ;
 +-------------------------------------------------------------+-------------------+---------+
 
 
@@ -746,16 +748,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                               ; Location           ; Fan-Out ; Usage                      ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
-; I2CIF:I2C|INITTING                                 ; FF_X19_Y17_N31     ; 19      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
-; I2CIF:I2C|TXBUF[8]~21                              ; LCCOMB_X16_Y18_N8  ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; I2CIF:I2C|TXCNT[3]~12                              ; LCCOMB_X16_Y17_N8  ; 4       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|TXEMP_PXY~2 ; LCCOMB_X18_Y20_N4  ; 16      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|TXEMP_PXY~2 ; LCCOMB_X18_Y20_N22 ; 51      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; I2C_MUX:I2CMUX|RXED_PXY[0]~1                       ; LCCOMB_X18_Y16_N18 ; 16      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; I2C_TLC59116:tlc59116|D_LEDMODES[13][0]~1          ; LCCOMB_X13_Y20_N16 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; SFTCLK:i2cclk|SFT                                  ; FF_X19_Y16_N25     ; 14      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; pClk                                               ; PIN_27             ; 134     ; Clock                      ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; rstn                                               ; PIN_123            ; 130     ; Async. clear, Clock enable ; no     ; --                   ; --               ; --                        ;
+; I2CIF:I2C|INITTING                                 ; FF_X16_Y19_N23     ; 18      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; I2CIF:I2C|TXBUF[6]~21                              ; LCCOMB_X17_Y20_N30 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; I2CIF:I2C|TXCNT[3]~13                              ; LCCOMB_X14_Y21_N2  ; 4       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|TXEMP_PXY~2 ; LCCOMB_X13_Y22_N30 ; 15      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|TXEMP_PXY~2 ; LCCOMB_X13_Y22_N14 ; 51      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; I2C_MUX:I2CMUX|RXED_PXY[0]~1                       ; LCCOMB_X18_Y22_N8  ; 17      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; I2C_TLC59116:tlc59116|D_LEDMODES[13][0]~1          ; LCCOMB_X14_Y20_N14 ; 5       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; SFTCLK:i2cclk|SFT                                  ; FF_X13_Y21_N25     ; 13      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; pClk                                               ; PIN_27             ; 135     ; Clock                      ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; rstn                                               ; PIN_123            ; 131     ; Async. clear, Clock enable ; no     ; --                   ; --               ; --                        ;
 +----------------------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -764,7 +766,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; pClk ; PIN_27   ; 134     ; 6                                    ; Global Clock         ; GCLK4            ; --                        ;
+; pClk ; PIN_27   ; 135     ; 8                                    ; Global Clock         ; GCLK4            ; --                        ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -773,25 +775,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; Block interconnects   ; 413 / 27,275 ( 2 % )   ;
+; Block interconnects   ; 416 / 27,275 ( 2 % )   ;
 ; C16 interconnects     ; 6 / 1,240 ( < 1 % )    ;
-; C4 interconnects      ; 135 / 20,832 ( < 1 % ) ;
-; Direct links          ; 108 / 27,275 ( < 1 % ) ;
+; C4 interconnects      ; 163 / 20,832 ( < 1 % ) ;
+; Direct links          ; 92 / 27,275 ( < 1 % )  ;
 ; Global clocks         ; 1 / 10 ( 10 % )        ;
-; Local interconnects   ; 227 / 8,064 ( 3 % )    ;
-; R24 interconnects     ; 1 / 1,320 ( < 1 % )    ;
-; R4 interconnects      ; 184 / 28,560 ( < 1 % ) ;
+; Local interconnects   ; 226 / 8,064 ( 3 % )    ;
+; R24 interconnects     ; 2 / 1,320 ( < 1 % )    ;
+; R4 interconnects      ; 182 / 28,560 ( < 1 % ) ;
 +-----------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 11.14) ; Number of LABs  (Total = 28) ;
+; Number of Logic Elements  (Average = 12.68) ; Number of LABs  (Total = 25) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 6                            ;
-; 2                                           ; 1                            ;
-; 3                                           ; 1                            ;
+; 1                                           ; 4                            ;
+; 2                                           ; 0                            ;
+; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
 ; 5                                           ; 0                            ;
 ; 6                                           ; 0                            ;
@@ -803,32 +805,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 12                                          ; 0                            ;
 ; 13                                          ; 5                            ;
 ; 14                                          ; 2                            ;
-; 15                                          ; 0                            ;
-; 16                                          ; 13                           ;
+; 15                                          ; 4                            ;
+; 16                                          ; 10                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.61) ; Number of LABs  (Total = 28) ;
+; LAB-wide Signals  (Average = 1.80) ; Number of LABs  (Total = 25) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 17                           ;
-; 1 Clock                            ; 21                           ;
-; 1 Clock enable                     ; 7                            ;
+; 1 Async. clear                     ; 18                           ;
+; 1 Clock                            ; 20                           ;
+; 1 Clock enable                     ; 6                            ;
+; 1 Sync. load                       ; 1                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 15.68) ; Number of LABs  (Total = 28) ;
+; Number of Signals Sourced  (Average = 17.76) ; Number of LABs  (Total = 25) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 6                            ;
+; 1                                            ; 4                            ;
 ; 2                                            ; 0                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 1                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
@@ -838,92 +841,85 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
-; 14                                           ; 0                            ;
+; 14                                           ; 1                            ;
 ; 15                                           ; 0                            ;
-; 16                                           ; 3                            ;
-; 17                                           ; 0                            ;
-; 18                                           ; 2                            ;
+; 16                                           ; 2                            ;
+; 17                                           ; 1                            ;
+; 18                                           ; 3                            ;
 ; 19                                           ; 2                            ;
-; 20                                           ; 4                            ;
+; 20                                           ; 2                            ;
 ; 21                                           ; 1                            ;
-; 22                                           ; 2                            ;
-; 23                                           ; 0                            ;
-; 24                                           ; 1                            ;
-; 25                                           ; 2                            ;
+; 22                                           ; 1                            ;
+; 23                                           ; 2                            ;
+; 24                                           ; 2                            ;
+; 25                                           ; 1                            ;
 ; 26                                           ; 1                            ;
 ; 27                                           ; 1                            ;
 ; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 0                            ;
-; 32                                           ; 1                            ;
+; 30                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 5.93) ; Number of LABs  (Total = 28) ;
+; Number of Signals Sourced Out  (Average = 6.52) ; Number of LABs  (Total = 25) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 8                            ;
+; 1                                               ; 5                            ;
 ; 2                                               ; 1                            ;
-; 3                                               ; 1                            ;
-; 4                                               ; 1                            ;
-; 5                                               ; 2                            ;
-; 6                                               ; 1                            ;
-; 7                                               ; 5                            ;
-; 8                                               ; 4                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 3                            ;
+; 5                                               ; 0                            ;
+; 6                                               ; 2                            ;
+; 7                                               ; 1                            ;
+; 8                                               ; 2                            ;
 ; 9                                               ; 1                            ;
-; 10                                              ; 0                            ;
-; 11                                              ; 1                            ;
+; 10                                              ; 2                            ;
+; 11                                              ; 3                            ;
 ; 12                                              ; 0                            ;
 ; 13                                              ; 1                            ;
-; 14                                              ; 0                            ;
-; 15                                              ; 1                            ;
-; 16                                              ; 0                            ;
-; 17                                              ; 0                            ;
-; 18                                              ; 1                            ;
+; 14                                              ; 2                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 12.39) ; Number of LABs  (Total = 28) ;
+; Number of Distinct Inputs  (Average = 13.64) ; Number of LABs  (Total = 25) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 2                            ;
-; 2                                            ; 2                            ;
-; 3                                            ; 1                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 0                            ;
 ; 4                                            ; 1                            ;
 ; 5                                            ; 1                            ;
-; 6                                            ; 1                            ;
-; 7                                            ; 1                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
-; 9                                            ; 1                            ;
-; 10                                           ; 0                            ;
-; 11                                           ; 2                            ;
-; 12                                           ; 1                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 1                            ;
+; 12                                           ; 2                            ;
 ; 13                                           ; 2                            ;
 ; 14                                           ; 1                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 0                            ;
-; 17                                           ; 2                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 2                            ;
+; 17                                           ; 4                            ;
 ; 18                                           ; 1                            ;
-; 19                                           ; 2                            ;
-; 20                                           ; 0                            ;
-; 21                                           ; 1                            ;
-; 22                                           ; 0                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 1                            ;
+; 21                                           ; 0                            ;
+; 22                                           ; 1                            ;
 ; 23                                           ; 0                            ;
 ; 24                                           ; 0                            ;
-; 25                                           ; 2                            ;
+; 25                                           ; 0                            ;
 ; 26                                           ; 1                            ;
-; 27                                           ; 0                            ;
+; 27                                           ; 1                            ;
 ; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
+; 30                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1050,9 +1046,9 @@ This will disable optimization of problematic paths and expose them for further 
 +-----------------------------------+----------------------+-------------------+
 ; Source Register                   ; Destination Register ; Delay Added in ns ;
 +-----------------------------------+----------------------+-------------------+
+; I2Crtc:rtc|I2Cstate.IS_INIRTCRYER ; I2Crtc:rtc|RDn       ; 0.099             ;
 ; I2CIF:I2C|TXBUF[0]                ; I2CIF:I2C|TXBUF[1]   ; 0.085             ;
 ; I2CIF:I2C|TXBUF[2]                ; I2CIF:I2C|TXBUF[3]   ; 0.085             ;
-; I2Crtc:rtc|I2Cstate.IS_INIRTCWADR ; I2Crtc:rtc|NX_READ   ; 0.034             ;
 +-----------------------------------+----------------------+-------------------+
 Note: This table only shows the top 3 path(s) that have the largest delay added for hold.
 
@@ -1097,7 +1093,7 @@ Info (176353): Automatically promoted node pClk~input (placed in PIN 27 (CLK0p, 
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1109,19 +1105,19 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
     Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X10_Y13 to location X20_Y25
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 1.01 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
+Info (11888): Total time spent on timing analysis during the Fitter is 1.04 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
 Info (144001): Generated suppressed messages file C:/Users/kuni/work/FPGA-TLC59116-Driver/Quartus/output_files/TLC59116-Driver.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5564 megabytes
-    Info: Processing ended: Mon Nov 16 00:30:32 2020
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 5562 megabytes
+    Info: Processing ended: Mon Nov 16 23:15:39 2020
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +----------------------------+

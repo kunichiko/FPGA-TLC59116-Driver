@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TLC59116-Driver
-Mon Nov 16 00:30:15 2020
+Mon Nov 16 23:15:17 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -28,12 +28,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  20. Parameter Settings for User Entity Instance: SFTCLK:i2cclk
  21. Parameter Settings for User Entity Instance: I2C_TLC59116:tlc59116
  22. Port Connectivity Checks: "X68_FRONTPANEL_CONTROLLER:FP"
- 23. Port Connectivity Checks: "I2C_TLC59116:tlc59116"
- 24. Port Connectivity Checks: "I2Crtc:rtc"
- 25. Port Connectivity Checks: "SFTCLK:i2cclk"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+ 23. Port Connectivity Checks: "I2Crtc:rtc"
+ 24. Port Connectivity Checks: "SFTCLK:i2cclk"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -59,15 +58,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 16 00:30:15 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 16 23:15:17 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; TLC59116-Driver                             ;
 ; Top-level Entity Name              ; I2C_SAMPLE                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 336                                         ;
-;     Total combinational functions  ; 289                                         ;
-;     Dedicated logic registers      ; 134                                         ;
-; Total registers                    ; 134                                         ;
+; Total logic elements               ; 333                                         ;
+;     Total combinational functions  ; 286                                         ;
+;     Dedicated logic registers      ; 135                                         ;
+; Total registers                    ; 135                                         ;
 ; Total pins                         ; 8                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -204,20 +203,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 336        ;
+; Estimated Total logic elements              ; 333        ;
 ;                                             ;            ;
-; Total combinational functions               ; 289        ;
+; Total combinational functions               ; 286        ;
 ; Logic element usage by number of LUT inputs ;            ;
 ;     -- 4 input functions                    ; 195        ;
 ;     -- 3 input functions                    ; 44         ;
-;     -- <=2 input functions                  ; 50         ;
+;     -- <=2 input functions                  ; 47         ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 284        ;
+;     -- normal mode                          ; 281        ;
 ;     -- arithmetic mode                      ; 5          ;
 ;                                             ;            ;
-; Total registers                             ; 134        ;
-;     -- Dedicated logic registers            ; 134        ;
+; Total registers                             ; 135        ;
+;     -- Dedicated logic registers            ; 135        ;
 ;     -- I/O registers                        ; 0          ;
 ;                                             ;            ;
 ; I/O pins                                    ; 8          ;
@@ -225,9 +224,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; pClk~input ;
-; Maximum fan-out                             ; 134        ;
-; Total fan-out                               ; 1469       ;
-; Average fan-out                             ; 3.33       ;
+; Maximum fan-out                             ; 135        ;
+; Total fan-out                               ; 1467       ;
+; Average fan-out                             ; 3.34       ;
 +---------------------------------------------+------------+
 
 
@@ -236,13 +235,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                ; Entity Name               ; Library Name ;
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
-; |I2C_SAMPLE                       ; 289 (5)             ; 134 (5)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
-;    |I2CIF:I2C|                    ; 136 (136)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
-;    |I2C_MUX:I2CMUX|               ; 45 (19)             ; 19 (7)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
+; |I2C_SAMPLE                       ; 286 (5)             ; 135 (5)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |I2C_SAMPLE                                        ; I2C_SAMPLE                ; work         ;
+;    |I2CIF:I2C|                    ; 134 (134)           ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2CIF:I2C                              ; I2CIF                     ; work         ;
+;    |I2C_MUX:I2CMUX|               ; 43 (17)             ; 19 (7)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX                         ; I2C_MUX                   ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:0:U|   ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U ; I2C_MUX_PROXY             ; work         ;
 ;       |I2C_MUX_PROXY:\GEN1:1:U|   ; 13 (13)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U ; I2C_MUX_PROXY             ; work         ;
 ;    |I2C_TLC59116:tlc59116|        ; 56 (56)             ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2C_TLC59116:tlc59116                  ; I2C_TLC59116              ; work         ;
-;    |I2Crtc:rtc|                   ; 32 (32)             ; 22 (22)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2Crtc:rtc                             ; I2Crtc                    ; work         ;
+;    |I2Crtc:rtc|                   ; 33 (33)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|I2Crtc:rtc                             ; I2Crtc                    ; work         ;
 ;    |SFTCLK:i2cclk|                ; 14 (14)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|SFTCLK:i2cclk                          ; SFTCLK                    ; work         ;
 ;    |X68_FRONTPANEL_CONTROLLER:FP| ; 1 (1)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |I2C_SAMPLE|X68_FRONTPANEL_CONTROLLER:FP           ; X68_FRONTPANEL_CONTROLLER ; work         ;
 +-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------+---------------------------+--------------+
@@ -391,6 +390,7 @@ Encoding Type:  One-Hot
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[14][1] ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[14][0] ; Stuck at GND due to stuck port data_in                   ;
 ; X68_FRONTPANEL_CONTROLLER:FP|LEDMODES[2][0]  ; Stuck at GND due to stuck port data_in                   ;
+; I2C_TLC59116:tlc59116|RDn                    ; Stuck at VCC due to stuck port data_in                   ;
 ; I2C_TLC59116:tlc59116|F_FINISH               ; Stuck at GND due to stuck port data_in                   ;
 ; I2C_TLC59116:tlc59116|INIT                   ; Stuck at GND due to stuck port data_in                   ;
 ; I2Crtc:rtc|F_FINISH                          ; Stuck at GND due to stuck port data_in                   ;
@@ -446,7 +446,7 @@ Encoding Type:  One-Hot
 ; I2Crtc:rtc|I2Cstate.IS_WRRTCYER              ; Stuck at GND due to stuck port data_in                   ;
 ; I2Crtc:rtc|I2Cstate.IS_WRRTCOFST             ; Stuck at GND due to stuck port data_in                   ;
 ; I2Crtc:rtc|TXOUT[5,6]                        ; Stuck at VCC due to stuck port data_in                   ;
-; Total Number of Removed Registers = 79       ;                                                          ;
+; Total Number of Removed Registers = 80       ;                                                          ;
 +----------------------------------------------+----------------------------------------------------------+
 
 
@@ -485,12 +485,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 134   ;
+; Total registers                              ; 135   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 2     ;
-; Number of registers using Asynchronous Clear ; 116   ;
+; Number of registers using Asynchronous Clear ; 120   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 73    ;
+; Number of registers using Clock Enable       ; 71    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -501,21 +501,22 @@ Encoding Type:  One-Hot
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
 ; SCLIN                                   ; 8       ;
-; I2CIF:I2C|INITTING                      ; 19      ;
+; I2CIF:I2C|INITTING                      ; 18      ;
 ; I2CIF:I2C|TXBIT                         ; 2       ;
 ; SDAIN                                   ; 7       ;
 ; I2CIF:I2C|INITCOUNT[3]                  ; 2       ;
 ; I2CIF:I2C|INITCOUNT[1]                  ; 4       ;
-; I2Crtc:rtc|WRn                          ; 7       ;
-; I2C_TLC59116:tlc59116|WRn               ; 6       ;
+; I2Crtc:rtc|WRn                          ; 5       ;
+; I2C_TLC59116:tlc59116|WRn               ; 5       ;
 ; I2CIF:I2C|LASTSDA                       ; 1       ;
 ; SFTCLK:i2cclk|counter[5]                ; 2       ;
 ; SFTCLK:i2cclk|counter[4]                ; 2       ;
 ; SFTCLK:i2cclk|counter[3]                ; 2       ;
 ; SFTCLK:i2cclk|counter[1]                ; 3       ;
 ; SFTCLK:i2cclk|counter[0]                ; 4       ;
+; I2Crtc:rtc|RDn                          ; 3       ;
 ; I2CIF:I2C|TXEMPbuf                      ; 5       ;
-; Total number of inverted registers = 15 ;         ;
+; Total number of inverted registers = 16 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -525,16 +526,17 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[5]                               ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[8]                               ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBUF[6]                               ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|CLKST[0]                               ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[2]                               ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXCNT[0]                               ;
 ; 20:1               ; 2 bits    ; 26 LEs        ; 12 LEs               ; 14 LEs                 ; Yes        ; |I2C_SAMPLE|I2CIF:I2C|TXBIT                                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|RESTART                           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|RDn                               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|START                             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |I2C_SAMPLE|I2CIF:I2C|STATE                                  ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector3                         ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|Selector3 ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|Selector5                         ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:1:U|Selector1 ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U|Selector1 ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |I2C_SAMPLE|I2Crtc:rtc|Selector27                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; No         ; |I2C_SAMPLE|I2Crtc:rtc|Selector14                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
@@ -608,21 +610,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------------+-------+----------+------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "I2C_TLC59116:tlc59116"                                                              ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; rdn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "I2Crtc:rtc"                                                                           ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port   ; Type   ; Severity ; Details                                                                             ;
 +--------+--------+----------+-------------------------------------------------------------------------------------+
-; rdn    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; yehid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; yelid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; monid  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
@@ -667,24 +659,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 134                         ;
-;     CLR               ; 60                          ;
-;     ENA               ; 17                          ;
+; cycloneiii_ff         ; 135                         ;
+;     CLR               ; 64                          ;
+;     ENA               ; 15                          ;
 ;     ENA CLR           ; 54                          ;
 ;     ENA CLR SLD       ; 2                           ;
-;     plain             ; 1                           ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 289                         ;
+; cycloneiii_lcell_comb ; 286                         ;
 ;     arith             ; 5                           ;
 ;         2 data inputs ; 5                           ;
-;     normal            ; 284                         ;
+;     normal            ; 281                         ;
 ;         1 data inputs ; 14                          ;
-;         2 data inputs ; 31                          ;
+;         2 data inputs ; 28                          ;
 ;         3 data inputs ; 44                          ;
 ;         4 data inputs ; 195                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 4.08                        ;
+; Average LUT depth     ; 4.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -693,7 +684,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -703,10 +694,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Nov 16 00:29:49 2020
+    Info: Processing started: Mon Nov 16 23:14:37 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TLC59116-Driver -c TLC59116-Driver
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/sample_rtc.vhd
+    Info (12022): Found design unit 1: I2C_SAMPLE_RTC-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample_rtc.vhd Line: 26
+    Info (12023): Found entity 1: I2C_SAMPLE_RTC File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample_rtc.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/x68_frontpanel_controller.vhd
     Info (12022): Found design unit 1: X68_FRONTPANEL_CONTROLLER-rtl File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 72
     Info (12023): Found entity 1: X68_FRONTPANEL_CONTROLLER File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/X68_FRONTPANEL_CONTROLLER.vhd Line: 53
@@ -736,7 +730,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 0 entities, in source file /users/kuni/work/fpga-tlc59116-driver/hdl/i2c_pkg.vhd
     Info (12022): Found design unit 1: I2C_pkg File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/I2C_pkg.vhd Line: 5
 Info (12127): Elaborating entity "I2C_SAMPLE" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at sample.vhd(60): object "I2C_RDn_PXY" assigned a value but never read File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 60
 Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_POWER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
 Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_TIMER", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
 Warning (10631): VHDL Process Statement warning at sample.vhd(443): inferring latch(es) for signal or variable "LED_FDD1_ACCESS", which holds its previous value in one or more paths through the process File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 443
@@ -772,15 +765,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pPsw[3]" File: C:/Users/kuni/work/FPGA-TLC59116-Driver/hdl/sample.vhd Line: 19
-Info (21057): Implemented 344 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 341 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 0 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 336 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Mon Nov 16 00:30:15 2020
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:47
+    Info (21061): Implemented 333 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4808 megabytes
+    Info: Processing ended: Mon Nov 16 23:15:17 2020
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:01:11
 
 

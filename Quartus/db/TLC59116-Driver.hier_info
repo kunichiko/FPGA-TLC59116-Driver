@@ -346,10 +346,10 @@ clk => I2C_MUX_PROXY:GEN1:1:U.clk
 clk => I2CMUXstate~1.DATAIN
 rstn => I2C_MUX_PROXY:GEN1:0:U.rstn
 rstn => I2C_MUX_PROXY:GEN1:1:U.rstn
+rstn => SEL.ACLR
+rstn => BUSGNT[0].ACLR
+rstn => BUSGNT[1].ACLR
 rstn => I2CMUXstate~3.DATAIN
-rstn => SEL.ENA
-rstn => BUSGNT[1].ENA
-rstn => BUSGNT[0].ENA
 
 
 |I2C_SAMPLE|I2C_MUX:I2CMUX|I2C_MUX_PROXY:\GEN1:0:U

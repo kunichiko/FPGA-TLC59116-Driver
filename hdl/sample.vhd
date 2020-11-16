@@ -317,7 +317,7 @@ I2CMUX :I2C_MUX generic map(NUM_DRIVERS=>NUM_DRIVERS) port map(
     DATIN_PXY   => I2C_TXDAT_PXY,
     DATOUT_PXY	=> I2C_RXDAT_PXY,
     WRn_PXY		=> I2C_WRn_PXY,
-    RDn_PXY		=> I2C_WRn_PXY,
+    RDn_PXY		=> I2C_RDn_PXY,
     
     TXEMP_PXY   => I2C_TXEMP_PXY,
     RXED_PXY	=> I2C_RXED_PXY,
@@ -327,7 +327,7 @@ I2CMUX :I2C_MUX generic map(NUM_DRIVERS=>NUM_DRIVERS) port map(
     RESTART_PXY	=> I2C_RESTART_PXY,
     START_PXY	=> I2C_START_PXY,
     FINISH_PXY	=> I2C_FINISH_PXY,
-    F_FINISH_PXY => I2C_F_FINISH_PXY,
+    F_FINISH_PXY=> I2C_F_FINISH_PXY,
     INIT_PXY	=> I2C_INIT_PXY,
     
     clk			=> sysclk,
