@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun Nov 15 15:01:53 2020
+Fitter Status : Successful - Mon Nov 16 23:15:37 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : TLC59116-Driver
 Top-level Entity Name : I2C_SAMPLE
 Family : MAX 10
 Device : 10M08SAE144C8G
 Timing Models : Final
-Total logic elements : 308 / 8,064 ( 4 % )
-    Total combinational functions : 281 / 8,064 ( 3 % )
-    Dedicated logic registers : 153 / 8,064 ( 2 % )
-Total registers : 153
+Total logic elements : 317 / 8,064 ( 4 % )
+    Total combinational functions : 289 / 8,064 ( 4 % )
+    Dedicated logic registers : 135 / 8,064 ( 2 % )
+Total registers : 135
 Total pins : 8 / 101 ( 8 % )
 Total virtual pins : 0
 Total memory bits : 0 / 387,072 ( 0 % )

@@ -32,8 +32,7 @@ constant NUM_DRIVERS: integer := 2;
 signal	sysclk	:std_logic;
 signal	srstn	:std_logic;
 
-signal  ledmodes0 :led_mode_array(0 to 15);
-signal  ledmodes1 :led_mode_array(0 to 15);
+signal  ledmodes :led_mode_array(0 to 15);
 
 --for I2C I/F
 signal	SDAIN,SDAOUT    :std_logic;
@@ -154,6 +153,57 @@ port(
 );
 end component;
 
+component I2Crtc is
+    port(
+        TXOUT		:out	std_logic_vector(7 downto 0);		--tx data in
+        RXIN		:in		std_logic_vector(7 downto 0);	--rx data out
+        WRn			:out	std_logic;						--write
+        RDn			:out	std_logic;						--read
+    
+        TXEMP		:in		std_logic;							--tx buffer empty
+        RXED		:in		std_logic;							--rx buffered
+        NOACK		:in		std_logic;							--no ack
+        COLL		:in		std_logic;							--collision detect
+        NX_READ		:out	std_logic;							--next data is read
+        RESTART		:out	std_logic;							--make re-start condition
+        START		:out	std_logic;							--make start condition
+        FINISH		:out	std_logic;							--next data is final(make stop condition)
+        F_FINISH	:out	std_logic;							--next data is final(make stop condition)
+        INIT		:out	std_logic;
+    
+        YEHID		:out std_logic_vector(3 downto 0);
+        YELID		:out std_logic_vector(3 downto 0);
+        MONID		:out std_logic_vector(3 downto 0);
+        DAYHID		:out std_logic_vector(1 downto 0);
+        DAYLID		:out std_logic_vector(3 downto 0);
+        WDAYID		:out std_logic_vector(2 downto 0);
+        HORHID		:out std_logic_vector(1 downto 0);
+        HORLID		:out std_logic_vector(3 downto 0);
+        MINHID		:out std_logic_vector(2 downto 0);
+        MINLID		:out std_logic_vector(3 downto 0);
+        SECHID		:out std_logic_vector(2 downto 0);
+        SECLID		:out std_logic_vector(3 downto 0);
+        RTCINI		:out std_logic;
+        
+        YEHWD		:in std_logic_vector(3 downto 0);
+        YELWD		:in std_logic_vector(3 downto 0);
+        MONWD		:in std_logic_vector(3 downto 0);
+        DAYHWD		:in std_logic_vector(1 downto 0);
+        DAYLWD		:in std_logic_vector(3 downto 0);
+        WDAYWD		:in std_logic_vector(2 downto 0);
+        HORHWD		:in std_logic_vector(1 downto 0);
+        HORLWD		:in std_logic_vector(3 downto 0);
+        MINHWD		:in std_logic_vector(2 downto 0);
+        MINLWD		:in std_logic_vector(3 downto 0);
+        SECHWD		:in std_logic_vector(2 downto 0);
+        SECLWD		:in std_logic_vector(3 downto 0);
+        RTCWR		:in std_logic;
+        
+        clk			:in std_logic;
+        rstn		:in std_logic
+    );
+end component;
+
 component I2C_TLC59116 is
 port(
     -- I2C
@@ -267,7 +317,7 @@ I2CMUX :I2C_MUX generic map(NUM_DRIVERS=>NUM_DRIVERS) port map(
     DATIN_PXY   => I2C_TXDAT_PXY,
     DATOUT_PXY	=> I2C_RXDAT_PXY,
     WRn_PXY		=> I2C_WRn_PXY,
-    RDn_PXY		=> I2C_WRn_PXY,
+    RDn_PXY		=> I2C_RDn_PXY,
     
     TXEMP_PXY   => I2C_TXEMP_PXY,
     RXED_PXY	=> I2C_RXED_PXY,
@@ -277,7 +327,7 @@ I2CMUX :I2C_MUX generic map(NUM_DRIVERS=>NUM_DRIVERS) port map(
     RESTART_PXY	=> I2C_RESTART_PXY,
     START_PXY	=> I2C_START_PXY,
     FINISH_PXY	=> I2C_FINISH_PXY,
-    F_FINISH_PXY => I2C_F_FINISH_PXY,
+    F_FINISH_PXY=> I2C_F_FINISH_PXY,
     INIT_PXY	=> I2C_INIT_PXY,
     
     clk			=> sysclk,
@@ -311,11 +361,9 @@ port map(
 );
 
 --
--- LED driver 
+-- RTC driver
 --
-
-tlc59116_0 :I2C_TLC59116 port map(
-    -- I2C I/F
+rtc	:I2Crtc port map(
     TXOUT	=>I2C_TXDAT_PXY(0),
     RXIN	=>I2C_RXDAT_PXY(0),
     WRn		=>I2C_WRn_PXY(0),
@@ -332,14 +380,42 @@ tlc59116_0 :I2C_TLC59116 port map(
     F_FINISH=>I2C_F_FINISH_PXY(0),
     INIT	=>I2C_INIT_PXY(0),
 
-    -- LED Control Ports
-    LEDMODES => ledmodes0,
-
-    clk		=>sysclk,
-    rstn	=>srstn
+    YEHID		=>open,
+    YELID		=>open,
+    MONID		=>open,
+    DAYHID		=>open,
+    DAYLID		=>open,
+    WDAYID		=>open,
+    HORHID		=>open,
+    HORLID		=>open,
+    MINHID		=>open,
+    MINLID		=>open,
+    SECHID		=>open,
+    SECLID		=>open,
+    RTCINI		=>open,
+    
+    YEHWD		=>(others=>'0'),
+    YELWD		=>(others=>'0'),
+    MONWD		=>(others=>'0'),
+    DAYHWD		=>(others=>'0'),
+    DAYLWD		=>(others=>'0'),
+    WDAYWD		=>(others=>'0'),
+    HORHWD		=>(others=>'0'),
+    HORLWD		=>(others=>'0'),
+    MINHWD		=>(others=>'0'),
+    MINLWD		=>(others=>'0'),
+    SECHWD		=>(others=>'0'),
+    SECLWD		=>(others=>'0'),
+    RTCWR		=>'0',
+    
+    clk			=>sysclk,
+    rstn		=>srstn
 );
+--
+-- LED driver 
+--
 
-tlc59116_1 :I2C_TLC59116 port map(
+tlc59116 :I2C_TLC59116 port map(
     -- I2C I/F
     TXOUT	=>I2C_TXDAT_PXY(1),
     RXIN	=>I2C_RXDAT_PXY(1),
@@ -358,7 +434,7 @@ tlc59116_1 :I2C_TLC59116 port map(
     INIT	=>I2C_INIT_PXY(1),
 
     -- LED Control Ports
-    LEDMODES => ledmodes1,
+    LEDMODES => ledmodes,
 
     clk		=>sysclk,
     rstn	=>srstn
@@ -366,7 +442,6 @@ tlc59116_1 :I2C_TLC59116 port map(
 
 process(sysclk,srstn)begin
     if(srstn='0')then
-        ledmodes0       <=(others => "00");
         LED_POWER       <= "11";
         LED_HD_BUSY     <= '0';
         LED_TIMER       <= '0';
@@ -375,24 +450,19 @@ process(sysclk,srstn)begin
         LED_FDD1_ACCESS <= "01";
         LED_FDD1_EJECT  <= '1';
     elsif(sysclk' event and sysclk='1')then
-        ledmodes0<=(others => "00");
         LED_HD_BUSY     <= '0';
         LED_FDD0_ACCESS <= "10";
         LED_FDD0_EJECT  <= '0';
         if(pPsw(0)='0')then
             LED_HD_BUSY<='1';
---            ledmodes0(0)<="10";
         end if;
         if(pPsw(1)='0')then
             LED_FDD0_ACCESS<="11";
---            ledmodes0(1)<="10";
         end if;
         if(pPsw(2)='0')then
             LED_FDD0_EJECT  <= '1';
---            ledmodes0(2)<="11";
         end if;
         if(pPsw(3)='0')then
---            ledmodes0(3)<="11";
         end if;
     end if;
 end process;
@@ -407,7 +477,7 @@ FP: X68_FRONTPANEL_CONTROLLER port map(
     LED_FDD1_EJECT  => LED_FDD1_EJECT,
 
     -- to TLC59116 module
-	LEDMODES        => ledmodes1,
+	LEDMODES        => ledmodes,
 
     clk		=>sysclk,
     rstn	=>srstn

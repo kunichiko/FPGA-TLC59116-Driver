@@ -34,7 +34,7 @@ port(
 	RESTART		:out	std_logic;						--make re-start condition
 	START		:out	std_logic;						--make start condition
 	FINISH		:out	std_logic;						--next data is final(make stop condition)
-	F_FINISH	 :out	std_logic;						--next data is final(make stop condition by force)
+	F_FINISH	:out	std_logic;						--next data is final(make stop condition by force)
 	INIT		:out	std_logic;
 
     -- for Driver
@@ -51,7 +51,7 @@ port(
 	RESTART_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--make re-start condition
 	START_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--make start condition
 	FINISH_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
-	F_FINISH_PXY :in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
+	F_FINISH_PXY:in     std_logic_vector(NUM_DRIVERS-1 downto 0);	--next data is final(make stop condition)
 	INIT_PXY	:in     std_logic_vector(NUM_DRIVERS-1 downto 0);
 	
 	clk			:in std_logic;
@@ -84,6 +84,7 @@ component I2C_MUX_PROXY is
 		-- to Driver
 		TXEMP_PXY   :out    std_logic;						--tx buffer empty
 		WRn_PXY	    :in     std_logic;						--write
+		RDn_PXY	    :in     std_logic;						--read
 		RESTART_PXY :in     std_logic;						--make re-start condition
 		START_PXY   :in     std_logic;						--make start condition
 		FINISH_PXY  :in     std_logic;						--next data is final(make stop condition)
@@ -104,6 +105,7 @@ begin
 			TXEMP		=> TXEMP,
 			TXEMP_PXY	=> TXEMP_PXY(I),
 			WRn_PXY		=> WRn_PXY(I),
+			RDn_PXY		=> RDn_PXY(I),
 			RESTART_PXY	=> RESTART_PXY(I),
 			START_PXY	=> START_PXY(I),
 			FINISH_PXY	=> FINISH_PXY(I),
@@ -116,16 +118,18 @@ begin
 	end generate;
 
 	WRn     <=  '1' when I2CMUXstate = IS_IDLE else 
-				'0' when I2CMUXstate = IS_START else WRn_PXY(SEL);
+				'0' when I2CMUXstate = IS_START else
+				WRn_PXY(SEL);
 	START   <=  '0' when I2CMUXstate = IS_IDLE else 
-				'1' when I2CMUXstate = IS_START else START_PXY(SEL);
+				'1' when I2CMUXstate = IS_START else 
+				START_PXY(SEL);
 
 	TXOUT   <=  DATIN_PXY(SEL)		when I2CMUXstate /=IS_IDLE else (others=>'0');
     RDn     <=  RDn_PXY(SEL) 		when I2CMUXstate = IS_BUSY else '1';
     NX_READ <=  NX_READ_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
     RESTART <=  RESTART_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
     FINISH  <=  FINISH_PXY(SEL)		when I2CMUXstate = IS_BUSY else '0';
-    F_FINISH <= F_FINISH_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
+    F_FINISH<=	F_FINISH_PXY(SEL)	when I2CMUXstate = IS_BUSY else '0';
     INIT    <=  INIT_PXY(SEL)		when I2CMUXstate = IS_BUSY else '0';
 
 	GEN2: for I in 0 to NUM_DRIVERS-1 generate
@@ -138,6 +142,8 @@ begin
 	begin
 		if(rstn='0')then
 			I2CMUXstate<=IS_IDLE;
+			BUSGNT<=(others => '0');
+			SEL<=0;
 		elsif(clk' event and clk='1')then
 			case I2CMUXstate is
 			when IS_IDLE =>
